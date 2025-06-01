@@ -29,12 +29,40 @@
       border-radius: 30px;
       font-size: 1.2rem;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInBounce 1s ease-out forwards;
     }
 
     .button:hover {
       background-color: #000000;
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes fadeInBounce {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-10px);
+      }
+      80% {
+        transform: translateY(5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 20px;
+      }
     }
   </style>
 </head>
