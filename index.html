@@ -17,10 +17,13 @@
       background: url('assets/fondo.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #ffffff;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
     }
 
     .button {
@@ -33,6 +36,7 @@
       font-size: 1.2rem;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-block;
+      max-width: 100%;
     }
 
     .button:hover {
@@ -42,9 +46,14 @@
     }
 
     @media (max-width: 600px) {
+      body {
+        padding: 1.5rem;
+      }
+
       .button {
-        padding: 1rem 1.5rem;
+        width: 100%;
         font-size: 1rem;
+        padding: 1rem;
         border-radius: 20px;
       }
     }
