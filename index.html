@@ -6,6 +6,10 @@
   <title>El Grit Cast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -13,25 +17,25 @@
       background: url('assets/fondo.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #ffffff;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
     }
 
     .button {
       background-color: rgba(0, 0, 0, 0.75);
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
       font-weight: bold;
       padding: 1rem 2rem;
       border-radius: 30px;
       font-size: 1.2rem;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      animation: fadeInBounce 1s ease-out forwards;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInBounce 1s ease-out forwards;
     }
 
     .button:hover {
@@ -67,11 +71,11 @@
   </style>
 </head>
 <body>
-
   <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
-
 </body>
 </html>
+
+
 
 
 
