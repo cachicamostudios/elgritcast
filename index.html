@@ -24,27 +24,29 @@
 
     .hero-container {
       height: 100vh;
-      padding-top: 60vh; /* posición visual más baja */
+      padding-top: 60vh;
       display: flex;
       justify-content: center;
       text-align: center;
     }
 
-    a.button {
+    .custom-button {
       background-color: rgba(0, 0, 0, 0.75);
       color: #ffffff;
-      text-decoration: none;
       font-weight: bold;
       padding: 1rem 2rem;
       border-radius: 50px;
       font-size: 1.4rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 90vw;
+      cursor: pointer;
+      text-align: center;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block;
-      box-shadow: none;
-      transform: none;
     }
 
-    a.button:hover {
+    .custom-button:hover {
       background-color: rgba(255, 255, 255, 0.15);
       transform: scale(1.07);
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
@@ -94,7 +96,7 @@
     }
 
     @media (max-width: 600px) {
-      a.button {
+      .custom-button {
         font-size: 1.2rem;
         padding: 0.8rem 1.4rem;
       }
@@ -115,22 +117,21 @@
 </head>
 <body>
 
-  <!-- Botón Yat centrado más abajo -->
+  <!-- Botón Yat sin errores visuales -->
   <div class="hero-container">
-    <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
+    <div class="custom-button" onclick="window.open('https://y.at/🎧🎤🎥💪/links', '_blank')">
+      🎧🎤🎥💪
+    </div>
   </div>
 
-  <!-- Formulario pequeño al pie -->
+  <!-- Formulario -->
   <div class="form-container">
     <form class="form-box" action="https://formspree.io/f/xkgbnjpr" method="POST">
       <h2>Contacto</h2>
-
       <label for="email" style="color: #000;">Email</label>
       <input type="email" name="email" id="email" required />
-
       <label for="message" style="color: #000;">Mensaje</label>
       <textarea name="message" id="message" required rows="2"></textarea>
-
       <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html">
       <button type="submit">Enviar</button>
     </form>
