@@ -53,11 +53,19 @@
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
     }
 
+    .divider {
+      border: none;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      width: 60%;
+      margin: 2rem auto;
+    }
+
     .form-container {
       display: flex;
       justify-content: center;
       padding: 1rem 0.5rem;
-      margin-top: -4rem;
+      margin-top: -2rem;
     }
 
     .form-box {
@@ -114,12 +122,15 @@
 </head>
 <body>
 
-  <!-- Botón Yat centrado y sin errores -->
+  <!-- Botón Yat centrado -->
   <div class="hero-container">
     <div class="custom-button" onclick="window.open('https://y.at/🎧🎤🎥💪/links', '_blank')">
       🎧🎤🎥💪
     </div>
   </div>
+
+  <!-- Línea divisora -->
+  <hr class="divider" />
 
   <!-- Formulario de contacto -->
   <div class="form-container">
