@@ -24,10 +24,11 @@
 
     .hero-container {
       height: 100vh;
-      padding-top: 60vh;
       display: flex;
+      align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 0 1rem;
     }
 
     .custom-button {
@@ -37,12 +38,12 @@
       padding: 1rem 2rem;
       border-radius: 50px;
       font-size: 1.4rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
       max-width: 90vw;
-      cursor: pointer;
       text-align: center;
+      white-space: nowrap;
+      cursor: pointer;
+      line-height: 1.2;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -101,10 +102,6 @@
         padding: 0.8rem 1.4rem;
       }
 
-      .hero-container {
-        padding-top: 55vh;
-      }
-
       .form-box {
         padding: 0.7rem 0.8rem;
       }
@@ -117,21 +114,24 @@
 </head>
 <body>
 
-  <!-- Botón Yat sin errores visuales -->
+  <!-- Botón Yat centrado y sin errores -->
   <div class="hero-container">
     <div class="custom-button" onclick="window.open('https://y.at/🎧🎤🎥💪/links', '_blank')">
       🎧🎤🎥💪
     </div>
   </div>
 
-  <!-- Formulario -->
+  <!-- Formulario de contacto -->
   <div class="form-container">
     <form class="form-box" action="https://formspree.io/f/xkgbnjpr" method="POST">
       <h2>Contacto</h2>
+
       <label for="email" style="color: #000;">Email</label>
       <input type="email" name="email" id="email" required />
+
       <label for="message" style="color: #000;">Mensaje</label>
       <textarea name="message" id="message" required rows="2"></textarea>
+
       <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html">
       <button type="submit">Enviar</button>
     </form>
