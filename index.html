@@ -24,13 +24,13 @@
 
     .hero-container {
       height: 100vh;
+      padding-top: 60vh; /* posición visual más baja */
       display: flex;
-      align-items: center;
       justify-content: center;
       text-align: center;
     }
 
-    .button {
+    a.button {
       background-color: rgba(0, 0, 0, 0.75);
       color: #ffffff;
       text-decoration: none;
@@ -40,24 +40,21 @@
       font-size: 1.4rem;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-block;
+      box-shadow: none;
+      transform: none;
     }
 
-    .button:hover {
+    a.button:hover {
       background-color: rgba(255, 255, 255, 0.15);
       transform: scale(1.07);
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-    }
-
-    a.button:visited {
-      color: #ffffff;
-      background-color: rgba(0, 0, 0, 0.75);
     }
 
     .form-container {
       display: flex;
       justify-content: center;
       padding: 1rem 0.5rem;
-      margin-top: -4rem; /* para que el formulario no cree espacio adicional innecesario */
+      margin-top: -4rem;
     }
 
     .form-box {
@@ -97,9 +94,13 @@
     }
 
     @media (max-width: 600px) {
-      .button {
+      a.button {
         font-size: 1.2rem;
         padding: 0.8rem 1.4rem;
+      }
+
+      .hero-container {
+        padding-top: 55vh;
       }
 
       .form-box {
@@ -114,7 +115,7 @@
 </head>
 <body>
 
-  <!-- Botón Yat centrado vertical y horizontal -->
+  <!-- Botón Yat centrado más abajo -->
   <div class="hero-container">
     <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
   </div>
