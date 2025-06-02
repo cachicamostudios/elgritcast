@@ -21,9 +21,9 @@
       color: #ffffff;
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       text-align: center;
       padding: 2rem;
     }
@@ -38,57 +38,13 @@
       font-size: 1.2rem;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-block;
+      margin-bottom: 3rem;
     }
 
     .button:hover {
       background-color: rgba(255, 255, 255, 0.15);
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    }
-
-    .form-container {
-      margin-top: 3rem;
-      background-color: rgba(212, 211, 211, 0.85);
-      padding: 2rem;
-      border-radius: 16px;
-      max-width: 500px;
-      width: 100%;
-      color: #000;
-    }
-
-    .form-container h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .form-container form {
-      text-align: left;
-    }
-
-    .form-container label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-
-    .form-container input,
-    .form-container textarea {
-      width: 100%;
-      padding: 0.6rem;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .form-container button {
-      background-color: #000;
-      color: #ffffff;
-      font-weight: bold;
-      padding: 0.8rem 1.6rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
     }
 
     @media (max-width: 600px) {
@@ -102,32 +58,28 @@
         padding: 0.9rem 1.5rem;
         border-radius: 50px;
       }
-
-      .form-container {
-        padding: 1.5rem;
-      }
     }
   </style>
 </head>
 <body>
+
   <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
 
-  <div class="form-container">
-    <h2>📬 Envíanos un mensaje</h2>
-    <form action="https://formspree.io/f/xkgbnjpr" method="POST">
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required />
+  <!-- Formulario al pie -->
+  <div style="margin-top: auto; width: 100%; display: flex; justify-content: center; margin-bottom: 2rem;">
+    <form action="https://formspree.io/f/xkgbnjpr" method="POST" style="background-color: rgba(212, 211, 211, 0.85); padding: 1.5rem 2rem; border-radius: 16px; max-width: 400px; width: 100%; text-align: left;">
+      <h2 style="font-size: 1.1rem; color: #000; margin-bottom: 0.8rem;">Contacto rápido</h2>
 
-      <label for="subject">Asunto:</label>
-      <input type="text" id="subject" name="subject" required />
+      <label for="email" style="font-size: 0.9rem; color: #000;">Tu correo</label>
+      <input type="email" name="email" id="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 0.8rem; border-radius: 6px; border: none;" />
 
-      <label for="message">Mensaje:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <label for="message" style="font-size: 0.9rem; color: #000;">Mensaje</label>
+      <textarea name="message" id="message" required rows="4" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 6px; border: none;"></textarea>
 
-      <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias">
-
-      <button type="submit">Enviar mensaje</button>
+      <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html">
+      <button type="submit" style="background-color: #000; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 30px; cursor: pointer; font-size: 0.9rem;">Enviar mensaje</button>
     </form>
   </div>
+
 </body>
 </html>
