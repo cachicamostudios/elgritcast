@@ -20,7 +20,14 @@
       background-attachment: fixed;
       color: #ffffff;
       min-height: 100vh;
-      position: relative;
+    }
+
+    .hero-container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .button {
@@ -46,21 +53,47 @@
       background-color: rgba(0, 0, 0, 0.75);
     }
 
-    .center-container {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
     .form-container {
-      position: relative;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
       display: flex;
       justify-content: center;
-      padding: 1rem;
+      padding: 1rem 0.5rem;
+      margin-top: -4rem; /* para que el formulario no cree espacio adicional innecesario */
+    }
+
+    .form-box {
+      background-color: rgba(212, 211, 211, 0.85);
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      max-width: 260px;
+      width: 100%;
+      text-align: left;
+      font-size: 0.7rem;
+    }
+
+    .form-box h2 {
+      font-size: 0.8rem;
+      color: #000;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-box input,
+    .form-box textarea {
+      width: 100%;
+      padding: 0.3rem;
+      margin-bottom: 0.4rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 0.7rem;
+    }
+
+    .form-box button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.7rem;
     }
 
     @media (max-width: 600px) {
@@ -69,36 +102,36 @@
         padding: 0.8rem 1.4rem;
       }
 
-      .center-container {
-        top: 35%;
+      .form-box {
+        padding: 0.7rem 0.8rem;
       }
 
       .form-container {
-        padding: 1.2rem;
+        margin-top: -2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Botón Yat completamente centrado -->
-  <div class="center-container">
+  <!-- Botón Yat centrado vertical y horizontal -->
+  <div class="hero-container">
     <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
   </div>
 
-  <!-- Formulario al pie -->
+  <!-- Formulario pequeño al pie -->
   <div class="form-container">
-    <form action="https://formspree.io/f/xkgbnjpr" method="POST" style="background-color: rgba(212, 211, 211, 0.85); padding: 1rem 1.2rem; border-radius: 10px; max-width: 260px; width: 100%; text-align: left; font-size: 0.72rem;">
-      <h2 style="font-size: 0.8rem; color: #000; margin-bottom: 0.4rem;">Contacto</h2>
+    <form class="form-box" action="https://formspree.io/f/xkgbnjpr" method="POST">
+      <h2>Contacto</h2>
 
       <label for="email" style="color: #000;">Email</label>
-      <input type="email" name="email" id="email" required style="width: 100%; padding: 0.3rem; margin-bottom: 0.4rem; border-radius: 4px; border: none; font-size: 0.72rem;" />
+      <input type="email" name="email" id="email" required />
 
       <label for="message" style="color: #000;">Mensaje</label>
-      <textarea name="message" id="message" required rows="2" style="width: 100%; padding: 0.3rem; margin-bottom: 0.5rem; border-radius: 4px; border: none; font-size: 0.72rem;"></textarea>
+      <textarea name="message" id="message" required rows="2"></textarea>
 
       <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html">
-      <button type="submit" style="background-color: #000; color: #fff; border: none; padding: 0.4rem 0.8rem; border-radius: 20px; cursor: pointer; font-size: 0.72rem;">Enviar</button>
+      <button type="submit">Enviar</button>
     </form>
   </div>
 
