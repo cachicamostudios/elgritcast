@@ -22,10 +22,18 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       text-align: center;
       padding: 2rem;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
 
     .button {
@@ -38,7 +46,6 @@
       font-size: 1.4rem;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-block;
-      margin: auto 0 4rem 0;
     }
 
     .button:hover {
@@ -55,18 +62,19 @@
       .button {
         font-size: 1.2rem;
         padding: 0.8rem 1.4rem;
-        margin-bottom: 3rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Botón Yat centrado -->
-  <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
+  <!-- Contenido principal centrado -->
+  <div class="main-content">
+    <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
+  </div>
 
-  <!-- Formulario ultra compacto -->
-  <div style="margin-top: auto; width: 100%; display: flex; justify-content: center; margin-bottom: 0.8rem;">
+  <!-- Formulario al pie -->
+  <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 0.8rem;">
     <form action="https://formspree.io/f/xkgbnjpr" method="POST" style="background-color: rgba(212, 211, 211, 0.85); padding: 0.6rem 0.8rem; border-radius: 10px; max-width: 260px; width: 100%; text-align: left; font-size: 0.72rem;">
       <h2 style="font-size: 0.8rem; color: #000; margin-bottom: 0.4rem;">Contacto</h2>
 
