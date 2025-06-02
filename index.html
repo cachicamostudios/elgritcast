@@ -20,20 +20,7 @@
       background-attachment: fixed;
       color: #ffffff;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .main-content {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+      position: relative;
     }
 
     .button {
@@ -54,27 +41,43 @@
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
     }
 
-    @media (max-width: 600px) {
-      html, body {
-        padding: 1.5rem;
-      }
+    .center-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
 
+    .form-container {
+      position: absolute;
+      bottom: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 600px) {
       .button {
         font-size: 1.2rem;
         padding: 0.8rem 1.4rem;
+      }
+
+      .form-container {
+        padding: 0 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Contenido principal centrado -->
-  <div class="main-content">
+  <!-- Botón Yat completamente centrado -->
+  <div class="center-container">
     <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
   </div>
 
   <!-- Formulario al pie -->
-  <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 0.8rem;">
+  <div class="form-container">
     <form action="https://formspree.io/f/xkgbnjpr" method="POST" style="background-color: rgba(212, 211, 211, 0.85); padding: 0.6rem 0.8rem; border-radius: 10px; max-width: 260px; width: 100%; text-align: left; font-size: 0.72rem;">
       <h2 style="font-size: 0.8rem; color: #000; margin-bottom: 0.4rem;">Contacto</h2>
 
