@@ -48,18 +48,19 @@
 
     .center-container {
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
     }
 
     .form-container {
-      position: absolute;
-      bottom: 1rem;
-      width: 100%;
+      position: relative;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
       display: flex;
       justify-content: center;
+      padding: 1rem;
     }
 
     @media (max-width: 600px) {
@@ -68,8 +69,12 @@
         padding: 0.8rem 1.4rem;
       }
 
+      .center-container {
+        top: 35%;
+      }
+
       .form-container {
-        padding: 0 1rem;
+        padding: 1.2rem;
       }
     }
   </style>
@@ -83,7 +88,7 @@
 
   <!-- Formulario al pie -->
   <div class="form-container">
-    <form action="https://formspree.io/f/xkgbnjpr" method="POST" style="background-color: rgba(212, 211, 211, 0.85); padding: 0.6rem 0.8rem; border-radius: 10px; max-width: 260px; width: 100%; text-align: left; font-size: 0.72rem;">
+    <form action="https://formspree.io/f/xkgbnjpr" method="POST" style="background-color: rgba(212, 211, 211, 0.85); padding: 1rem 1.2rem; border-radius: 10px; max-width: 260px; width: 100%; text-align: left; font-size: 0.72rem;">
       <h2 style="font-size: 0.8rem; color: #000; margin-bottom: 0.4rem;">Contacto</h2>
 
       <label for="email" style="color: #000;">Email</label>
