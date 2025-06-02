@@ -10,12 +10,14 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: url('assets/fondo.jpg') no-repeat center center fixed;
+      background-color: #000;
+      background: url('assets/fondo.jpg') no-repeat center center;
       background-size: cover;
+      background-attachment: fixed;
       color: #ffffff;
       min-height: 100vh;
       display: flex;
@@ -31,30 +33,29 @@
       color: #ffffff;
       text-decoration: none;
       font-weight: bold;
-      padding: 1rem 2rem;
-      border-radius: 30px;
+      padding: 0.8rem 1.6rem;
+      border-radius: 50px;
       font-size: 1.2rem;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-block;
-      max-width: 100%;
     }
 
     .button:hover {
-      background-color: #000000;
+      background-color: rgba(255, 255, 255, 0.15);
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
     @media (max-width: 600px) {
-      body {
+      html, body {
         padding: 1.5rem;
       }
 
       .button {
-        width: 100%;
-        font-size: 1rem;
-        padding: 1rem;
-        border-radius: 20px;
+        width: auto;
+        font-size: 1.1rem;
+        padding: 0.9rem 1.5rem;
+        border-radius: 50px;
       }
     }
   </style>
@@ -63,6 +64,7 @@
   <a href="https://y.at/%F0%9F%8E%A7%F0%9F%8E%A4%F0%9F%8E%A5%F0%9F%92%AA/links" class="button" target="_blank">🎧🎤🎥💪</a>
 </body>
 </html>
+
 
 
 
