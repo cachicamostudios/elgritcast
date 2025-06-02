@@ -23,12 +23,13 @@
     }
 
     .hero-container {
-      height: 100vh;
+      position: relative;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 1rem;
+      justify-content: flex-start;
+      padding-top: 20vh;
     }
 
     .custom-button {
@@ -45,6 +46,7 @@
       cursor: pointer;
       line-height: 1.2;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 2;
     }
 
     .custom-button:hover {
@@ -53,20 +55,22 @@
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
     }
 
-    .divider {
-      border: none;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.4); /* más visible */
-      width: 60%;
-      margin: 2.5rem auto 1.5rem;
-      border-radius: 1px;
+    .vertical-line {
+      position: absolute;
+      top: calc(20vh + 4.5rem); /* justo debajo del botón con margen */
+      height: 60px;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.35);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
     }
 
     .form-container {
       display: flex;
       justify-content: center;
-      padding: 1rem 0.5rem;
-      margin-top: -2rem;
+      margin-top: 5rem;
+      z-index: 2;
     }
 
     .form-box {
@@ -116,22 +120,27 @@
       }
 
       .form-container {
-        margin-top: -2rem;
+        margin-top: 4rem;
+      }
+
+      .vertical-line {
+        height: 50px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Botón Yat centrado -->
+  <!-- Contenedor principal -->
   <div class="hero-container">
+    <!-- Botón Yat -->
     <div class="custom-button" onclick="window.open('https://y.at/🎧🎤🎥💪/links', '_blank')">
       🎧🎤🎥💪
     </div>
-  </div>
 
-  <!-- Línea divisoria -->
-  <hr class="divider" />
+    <!-- Línea vertical decorativa -->
+    <div class="vertical-line"></div>
+  </div>
 
   <!-- Formulario de contacto -->
   <div class="form-container">
