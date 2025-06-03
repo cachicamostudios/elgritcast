@@ -13,7 +13,7 @@
     <itunes:category text="Health &amp; Fitness">
       <itunes:category text="Nutrition"/>
     </itunes:category>
-    <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cube_3_2.png"/>
+    <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cover_1400.jpg"/>
     <atom:link href="https://elgritcast.com/rss.xml" rel="self" type="application/rss+xml"/>
 
     <item>
@@ -25,7 +25,7 @@
                  type="audio/mpeg" />
       <guid>elgritcast-ep-024-andreina-fernandes</guid>
       <itunes:duration>01:11:00</itunes:duration>
-      <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cube_3_2.png"/>
+      <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cover_1400.jpg"/>
       <link>https://elgritcast.com/episodios/024-andreina-fernandes</link>
 
       <!-- Etiquetas PSP-1 modernas -->
