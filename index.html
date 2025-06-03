@@ -3,33 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ep. 024 – Andreina Fernandes | El Grit Cast</title>
-  <meta name="description" content="Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.">
+  <title>El Grit Cast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Tus estilos actuales permanecen igual... (omitidos para brevedad) */
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      background: url('assets/fondo.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .hero-container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 2cm;
+      flex-direction: column;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0.5rem;
+    }
+
+    .form-box {
+      background-color: rgba(212, 211, 211, 0.85);
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      max-width: 260px;
+      width: 100%;
+      text-align: left;
+      font-size: 0.7rem;
+    }
+
+    .form-box h2 {
+      font-size: 0.8rem;
+      color: #000;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-box input,
+    .form-box textarea {
+      width: 100%;
+      padding: 0.3rem;
+      margin-bottom: 0.4rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 0.7rem;
+    }
+
+    .form-box button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.7rem;
+    }
+
+    .play-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(255, 255, 255, 0.75);
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .play-button:hover {
+      transform: scale(1.05);
+    }
+
+    #player {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .form-box {
+        padding: 0.7rem 0.8rem;
+      }
+
+      .play-button {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="hero-container">
-    <h1>Ep. 024 – Andreina Fernandes</h1>
-    <p style="max-width: 600px; padding: 1rem;">
-      🍳 Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.
-    </p>
-    
-    <audio controls style="margin-top: 1rem; width: 90%;">
-      <source src="https://twilight-cake-75d4.susanagomes.workers.dev/elgritcast-ep-024-andreina-fernandes.mp3" type="audio/mpeg">
-      Tu navegador no soporta audio embebido.
-    </audio>
-
-    <!-- Botón Yat -->
-    <div class="custom-button" onclick="window.open('https://y.at/🎧🎤🎥💪/links', '_blank')">
-      🎧🎤🎥💪
-    </div>
+    <!-- Espacio central vacío o con contenido futuro -->
   </div>
 
-  <!-- Formulario -->
+  <!-- Formulario de contacto -->
   <div class="form-container">
     <form class="form-box" action="https://formspree.io/f/xkgbnjpr" method="POST">
       <h2>Contacto</h2>
@@ -42,9 +130,19 @@
     </form>
   </div>
 
+  <!-- Botón fijo para reproducir el episodio -->
+  <button class="play-button" onclick="document.getElementById('player').play();">
+    Escuchar
+  </button>
+
+  <!-- Reproductor oculto -->
+  <audio id="player">
+    <source src="https://twilight-cake-75d4.susanagomes.workers.dev/elgritcast-ep-024-andreina-fernandes.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio embebido.
+  </audio>
+
   <!-- GoatCounter -->
-  <script data-goatcounter="https://elgritcast.goatcounter.com/count"
-          async src="https://gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://elgritcast.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 
 </body>
 </html>
