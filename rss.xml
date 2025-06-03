@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>El Grit Cast</title>
+    <link>https://elgritcast.com</link>
+    <description>Conversaciones reales sobre la determinación, la pasión y la fuerza mental que nos empuja a seguir adelante.</description>
+    <language>es</language>
+    <itunes:author>El Grit Cast</itunes:author>
+    <itunes:image href="https://elgritcast.com/assets/images/ep024-andreina.jpg"/>
+    <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>No comas esto si quieres impulsar tu Grit</title>
+      <description>🍳 Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.</description>
+      <pubDate>Wed, 22 May 2025 08:00:00 GMT</pubDate>
+      <enclosure url="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-024-andreina-fernandes.MP3" length="0" type="audio/mpeg"/>
+      <guid>elgritcast-ep-024-andreina-fernandes</guid>
+      <itunes:duration>01:11:00</itunes:duration>
+      <itunes:image href="https://elgritcast.com/assets/images/ep024-andreina.jpg"/>
+    </item>
+  </channel>
+</rss>
