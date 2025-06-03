@@ -10,7 +10,7 @@
     <language>es</language>
     <itunes:author>El Grit Cast</itunes:author>
     <itunes:explicit>no</itunes:explicit>
-    <itunes:category text="Health & Fitness">
+    <itunes:category text="Health &amp; Fitness">
       <itunes:category text="Nutrition"/>
     </itunes:category>
     <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cube_3_2.png"/>
