@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
      xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0"
      version="2.0">
   <channel>
     <title>El Grit Cast</title>
@@ -9,7 +10,9 @@
     <language>es</language>
     <itunes:author>El Grit Cast</itunes:author>
     <itunes:explicit>no</itunes:explicit>
-    <itunes:category text="Health"/>
+    <itunes:category text="Health & Fitness">
+      <itunes:category text="Nutrition"/>
+    </itunes:category>
     <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cube_3_2.png"/>
     <atom:link href="https://elgritcast.com/rss.xml" rel="self" type="application/rss+xml"/>
 
@@ -17,15 +20,22 @@
       <title>No comas esto si quieres impulsar tu Grit</title>
       <description>&#x1F373; Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.</description>
       <pubDate>Wed, 22 May 2025 08:00:00 GMT</pubDate>
-      <enclosure url="https://flat-mud-2cbc.susanagomes.workers.dev/?file=https%3A%2F%2Fpub-588137ed925246f1a847e7b1a862df78.r2.dev%2Felgritcast-ep-024-andreina-fernandes.MP3"
+      <enclosure url="https://flat-mud-2cbc.susanagomes.workers.dev/elgritcast-ep-024-andreina-fernandes.mp3"
                  length="68170000"
                  type="audio/mpeg" />
       <guid>elgritcast-ep-024-andreina-fernandes</guid>
       <itunes:duration>01:11:00</itunes:duration>
       <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cube_3_2.png"/>
       <link>https://elgritcast.com/episodios/024-andreina-fernandes</link>
+
+      <!-- Etiquetas PSP-1 modernas -->
+      <podcast:guid isPermaLink="false">elgritcast-ep-024-andreina-fernandes</podcast:guid>
+      <podcast:person role="guest" img="https://elgritcast.com/assets/images/andreina.png">Andreina Fernandes</podcast:person>
+      <podcast:person role="host" img="https://elgritcast.com/assets/images/susana.png">Susana Gomes</podcast:person>
+      <podcast:location lat="32.6669" lon="-16.9241">Funchal, Madeira</podcast:location>
+      <podcast:funding url="https://www.buymeacoffee.com/elgritcast">Apóyanos en Buy Me a Coffee</podcast:funding>
+      <podcast:transcript url="https://elgritcast.com/transcripts/ep024.txt" type="text/plain" />
     </item>
 
   </channel>
 </rss>
-
