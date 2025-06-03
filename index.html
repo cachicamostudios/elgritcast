@@ -35,17 +35,12 @@
       background-color: rgba(0, 0, 0, 0.75);
       color: #ffffff;
       font-weight: bold;
-      padding: 1rem 2rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 50px;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       cursor: pointer;
       text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .custom-button.small {
-      font-size: 1.1rem;
-      padding: 0.6rem 1.2rem;
     }
 
     .custom-button:hover {
@@ -124,11 +119,6 @@
 
     @media (max-width: 600px) {
       .custom-button {
-        font-size: 1.2rem;
-        padding: 0.8rem 1.4rem;
-      }
-
-      .custom-button.small {
         font-size: 1rem;
         padding: 0.5rem 1rem;
       }
@@ -150,22 +140,22 @@
 </head>
 <body>
 
-  <!-- Botón de reproducción arriba izquierda -->
+  <!-- Botón de reproducción -->
   <button class="audio-toggle" onclick="document.getElementById('audio-player').style.display = 'block'">
     ▶ Escuchar episodio
   </button>
 
-  <!-- Reproductor oculto -->
+  <!-- Reproductor visible al hacer clic -->
   <div id="audio-player">
     <audio controls>
-      <source src="https://twilight-cake-75d4.susanagomes.workers.dev/elgritcast-ep-024-andreina-fernandes.mp3" type="audio/mpeg">
+      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-024-andreina-fernandes-id3.MP3" type="audio/mpeg">
       Tu navegador no soporta audio.
     </audio>
   </div>
 
   <!-- Botón central con emojis -->
   <div class="hero-container">
-    <a class="custom-button small" href="https://y.at/🎧🎤🎥💪" target="_blank">
+    <a class="custom-button" href="https://y.at/🎧🎤🎥💪" target="_blank">
       🎧🎤🎥💪
     </a>
   </div>
