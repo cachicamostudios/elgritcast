@@ -13,23 +13,49 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: #000;
-      background: url('assets/fondo.jpg') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-      color: #ffffff;
-      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(6px);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: -1;
     }
 
     .hero-container {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding-top: 2cm; /* Botón bajado 2 cm */
+      padding-top: 2cm;
       flex-direction: column;
+      position: relative;
+      z-index: 1;
     }
 
     .custom-button {
@@ -58,6 +84,8 @@
       display: flex;
       justify-content: center;
       padding: 2rem 0.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     .form-box {
@@ -110,15 +138,22 @@
 </head>
 <body>
 
-  <!-- Contenedor principal -->
+  <!-- Fondo desenfocado -->
+  <div class="background">
+    <img src="assets/fondo.jpg" alt="Fondo desenfocado" />
+  </div>
+
+  <!-- Capa oscura encima del fondo -->
+  <div class="overlay"></div>
+
+  <!-- Contenido principal -->
   <div class="hero-container">
-    <!-- Botón Yat -->
     <div class="custom-button" onclick="window.open('https://y.at/🎧🎤🎥💪/links', '_blank')">
       🎧🎤🎥💪
     </div>
   </div>
 
-  <!-- Formulario -->
+  <!-- Formulario de contacto -->
   <div class="form-container">
     <form class="form-box" action="https://formspree.io/f/xkgbnjpr" method="POST">
       <h2>Contacto</h2>
@@ -131,7 +166,7 @@
     </form>
   </div>
 
-  <!-- GoatCounter -->
+  <!-- Estadísticas (opcional) -->
   <script data-goatcounter="https://elgritcast.goatcounter.com/count"
           async src="https://gc.zgo.at/count.js"></script>
 
