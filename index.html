@@ -43,6 +43,11 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .custom-button.small {
+      font-size: 1.1rem;
+      padding: 0.6rem 1.2rem;
+    }
+
     .custom-button:hover {
       transform: scale(1.07);
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
@@ -123,6 +128,11 @@
         padding: 0.8rem 1.4rem;
       }
 
+      .custom-button.small {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+
       .form-box {
         padding: 0.7rem 0.8rem;
       }
@@ -140,12 +150,12 @@
 </head>
 <body>
 
-  <!-- Botón de reproducción -->
+  <!-- Botón de reproducción arriba izquierda -->
   <button class="audio-toggle" onclick="document.getElementById('audio-player').style.display = 'block'">
     ▶ Escuchar episodio
   </button>
 
-  <!-- Reproductor oculto hasta que se haga clic -->
+  <!-- Reproductor oculto -->
   <div id="audio-player">
     <audio controls>
       <source src="https://twilight-cake-75d4.susanagomes.workers.dev/elgritcast-ep-024-andreina-fernandes.mp3" type="audio/mpeg">
@@ -153,10 +163,10 @@
     </audio>
   </div>
 
-  <!-- Botón central -->
+  <!-- Botón central con emojis -->
   <div class="hero-container">
-    <a class="custom-button" href="https://y.at/🎧🎤🎥💪" target="_blank">
-      🎧 Escúchalo Aquí
+    <a class="custom-button small" href="https://y.at/🎧🎤🎥💪" target="_blank">
+      🎧🎤🎥💪
     </a>
   </div>
 
