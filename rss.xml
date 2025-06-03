@@ -10,15 +10,15 @@
     <language>es</language>
     <itunes:author>El Grit Cast</itunes:author>
     <itunes:explicit>no</itunes:explicit>
-    <itunes:category text=Health &amp; Fitness>
-      <itunes:category text=Nutrition/>
+    <itunes:category text="Health &amp; Fitness">
+      <itunes:category text="Nutrition"/>
     </itunes:category>
     <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cover_1400.jpg"/>
     <atom:link href="https://elgritcast.com/rss.xml" rel="self" type="application/rss+xml"/>
 
     <item>
       <title>No comas esto si quieres impulsar tu Grit</title>
-      <description>Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.</description>
+      <description>🍳 Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.</description>
       <pubDate>Wed, 22 May 2025 08:00:00 GMT</pubDate>
       <enclosure url="https://twilight-cake-75d4.susanagomes.workers.dev/elgritcast-ep-024-andreina-fernandes.mp3"
                  length="68170000"
@@ -26,8 +26,9 @@
       <guid>elgritcast-ep-024-andreina-fernandes</guid>
       <itunes:duration>01:11:00</itunes:duration>
       <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cover_1400.jpg"/>
-      <link>https://elgritcast.com/episodios/024-andreina-fernandes/</link>
+      <link>https://elgritcast.com/episodios/024-andreina-fernandes</link>
 
+      <!-- Etiquetas PSP-1 modernas -->
       <podcast:guid isPermaLink="false">elgritcast-ep-024-andreina-fernandes</podcast:guid>
       <podcast:person role="guest" img="https://elgritcast.com/assets/images/andreina.png">Andreina Fernandes</podcast:person>
       <podcast:person role="host" img="https://elgritcast.com/assets/images/susana.png">Susana Gomes</podcast:person>
@@ -35,6 +36,5 @@
       <podcast:funding url="https://www.buymeacoffee.com/elgritcast">Apóyanos en Buy Me a Coffee</podcast:funding>
       <podcast:transcript url="https://elgritcast.com/transcripts/ep024.txt" type="text/plain" />
     </item>
-
   </channel>
 </rss>
