@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
      xmlns:atom="http://www.w3.org/2005/Atom"
-     xmlns:podcast="https://podcastindex.org/namespace/1.0"
-     version="2.0">
+     xmlns:podcast="https://podcastindex.org/namespace/1.0">
   <channel>
     <title>El Grit Cast</title>
     <link>https://elgritcast.com</link>
@@ -18,7 +18,7 @@
 
     <item>
       <title>No comas esto si quieres impulsar tu Grit</title>
-      <description>&#x1F373; Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.</description>
+      <description>Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.</description>
       <pubDate>Wed, 22 May 2025 08:00:00 GMT</pubDate>
       <enclosure url="https://flat-mud-2cbc.susanagomes.workers.dev/elgritcast-ep-024-andreina-fernandes.mp3"
                  length="68170000"
