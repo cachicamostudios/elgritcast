@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-     xmlns:atom="http://www.w3.org/2005/Atom"
-     xmlns:podcast="https://podcastindex.org/namespace/1.0"
-     version="2.0">
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:media="http://search.yahoo.com/mrss/">
+
   <channel>
     <title>El Grit Cast</title>
     <link>https://elgritcast.com</link>
-    <description>Conversaciones reales sobre la determinación, la pasión y la fuerza mental que nos empuja a seguir adelante.</description>
+    <description>Historias que alimentan tu Grit. Inspiración real, personas de verdad, con un poder interior que transforma.</description>
     <language>es</language>
-    <itunes:author>El Grit Cast</itunes:author>
+    <copyright>© 2025 El Grit Cast</copyright>
+    <itunes:author>Susana Gomes</itunes:author>
+    <itunes:summary>Historias reales de personas con determinación, perseverancia y pasión. Presentado por Susana Gomes.</itunes:summary>
     <itunes:explicit>no</itunes:explicit>
+    <itunes:owner>
+      <itunes:name>Susana Gomes</itunes:name>
+      <itunes:email>susanagomes@cachicamo.studio</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://elgritcast.com/assets/logo.jpg"/>
     <itunes:category text="Health &amp; Fitness">
-      <itunes:category text="Nutrition"/>
+      <itunes:category text="Mental Health"/>
     </itunes:category>
-    <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cover_1400.jpg"/>
-    <atom:link href="https://elgritcast.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://elgritcast.com/assets/logo.jpg</url>
+      <title>El Grit Cast</title>
+      <link>https://elgritcast.com</link>
+    </image>
 
     <item>
-      <title>No comas esto si quieres impulsar tu Grit</title>
+      <title>Ep. 024 – Andreina Fernandes</title>
       <description>Descubre qué alimentos alimentan tu Grit, cuáles lo drenan silenciosamente, y cómo puedes comenzar a nutrir tu cuerpo y tu mente con conciencia.</description>
-      <pubDate>Wed, 22 May 2025 08:00:00 GMT</pubDate>
-      <enclosure url="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-024-andreina-fernandes-id3.MP3"
-                 length="68170000"
-                 type="audio/mpeg" />
-      <guid>elgritcast-ep-024-andreina-fernandes</guid>
-      <itunes:duration>01:11:00</itunes:duration>
-      <itunes:image href="https://elgritcast.com/assets/images/el_grit_cast_cover_1400.jpg"/>
-      <link>https://elgritcast.com/episodios/024-andreina-fernandes</link>
-
-      <!-- Etiquetas PSP-1 modernas -->
-      <podcast:guid isPermaLink="false">elgritcast-ep-024-andreina-fernandes</podcast:guid>
-      <podcast:person role="guest" img="https://elgritcast.com/assets/images/andreina.png">Andreina Fernandes</podcast:person>
-      <podcast:person role="host" img="https://elgritcast.com/assets/images/susana.png">Susana Gomes</podcast:person>
-      <podcast:location lat="32.6669" lon="-16.9241">Funchal, Madeira</podcast:location>
-      <podcast:funding url="https://www.buymeacoffee.com/elgritcast">Apóyanos en Buy Me a Coffee</podcast:funding>
-      <podcast:transcript url="https://elgritcast.com/transcripts/ep024.txt" type="text/plain" />
+      <pubDate>Tue, 03 Jun 2025 21:00:00 +0000</pubDate>
+      <guid>https://elgritcast.com/episodios/ep-024-andreina-fernandes</guid>
+      <link>https://elgritcast.com/episodios/ep-024-andreina-fernandes</link>
+      <enclosure url="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-024-andreina-fernandes-id3.MP3" length="63300000" type="audio/mpeg"/>
+      <itunes:duration>00:44:00</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
     </item>
+
   </channel>
 </rss>
