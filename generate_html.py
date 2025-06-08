@@ -1,34 +1,70 @@
-name: Generar episodios.html
+import pandas as pd
+from datetime import datetime
 
-on:
-  push:
-    paths:
-      - 'episodios.csv'
-      - 'generate_html.py'
+df = pd.read_csv("episodios.csv")
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+html_head = """<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>El Grit Cast - Episodios</title>
+  <style>
+    body { background-color: #373737; color: #fff; font-family: sans-serif; padding: 2rem; }
+    h1 { color: #B8FC26; margin-bottom: 1rem; }
+    input[type='text'] {
+      width: 100%; padding: 10px; font-size: 1rem;
+      margin-bottom: 2rem; border: none; border-radius: 8px;
+    }
+    section {
+      margin-bottom: 2rem; padding: 1rem;
+      background-color: #1e1e1e; border-radius: 10px;
+    }
+    h2 { color: #B8FC26; margin-bottom: 0.5rem; }
+    audio { width: 100%; margin-top: 0.5rem; }
+    p { margin: 0.5rem 0; }
+  </style>
+</head>
+<body>
+  <h1>🎙️ Todos los Episodios de El Grit Cast</h1>
+  <input type="text" id="busqueda" placeholder="Buscar episodio por título, invitado o tema...">
+  <div id="episodios">
+"""
 
-    steps:
-    - name: Clonar repositorio
-      uses: actions/checkout@v3
+html_script = """
+  </div>
+  <script>
+    const input = document.getElementById("busqueda");
+    const episodios = document.querySelectorAll("#episodios section");
+    input.addEventListener("input", function () {
+      const texto = input.value.toLowerCase();
+      episodios.forEach((ep) => {
+        const contenido = ep.textContent.toLowerCase();
+        ep.style.display = contenido.includes(texto) ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
+"""
 
-    - name: Configurar Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+episodes_html = ""
+for _, row in df.iterrows():
+    num = str(row["número"]).zfill(3)
+    titulo = row["título"] or f"Episodio {num}"
+    fecha = datetime.strptime(row["fecha"], "%Y-%m-%d").strftime("%d/%m/%Y")
+    episodio = f"""
+    <section>
+      <h2>Episodio {num}: {titulo}</h2>
+      <p><strong>Invitado:</strong> {row["invitado"]}</p>
+      <p><strong>Fecha:</strong> {fecha}</p>
+      <p><strong>Temas:</strong> {row["temas"]}</p>
+      <audio controls preload="none">
+        <source src="{row["url_mp3"]}" type="audio/mpeg">
+        Tu navegador no soporta el reproductor de audio.
+      </audio>
+    </section>
+    """
+    episodes_html += episodio
 
-    - name: Instalar dependencias
-      run: pip install pandas
-
-    - name: Ejecutar script
-      run: python generate_html.py
-
-    - name: Commit y push de cambios
-      run: |
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
-        git add episodios.html
-        git commit -m "Actualizar episodios.html automáticamente" || echo "No hay cambios"
-        git push
+with open("episodios.html", "w", encoding="utf-8") as f:
+    f.write(html_head + episodes_html + html_script)
