@@ -5,10 +5,16 @@ from datetime import datetime
 # Crear carpeta /episodios si no existe
 os.makedirs("episodios", exist_ok=True)
 
-# Leer el archivo CSV con los episodios
-df = pd.read_csv("episodios.csv")
+# Leer el archivo CSV con separador de columnas '|'
+df = pd.read_csv("episodios.csv", sep="|")
 
-# Encabezado HTML con fondo, estilos y botón de volver
+# Mostrar columnas detectadas por seguridad
+print("🔎 Columnas leídas:", df.columns.tolist())
+
+# Arreglar posibles espacios o BOM invisibles en encabezados
+df.columns = df.columns.str.strip()
+
+# Encabezado HTML
 html_head = """<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,12 +28,9 @@ html_head = """<!DOCTYPE html>
       font-family: sans-serif;
       padding: 2rem;
     }
-
     h1 {
       color: #B8FC26;
-      margin-bottom: 1rem;
     }
-
     .volver {
       display: inline-block;
       margin-bottom: 2rem;
@@ -38,7 +41,6 @@ html_head = """<!DOCTYPE html>
       text-decoration: none;
       font-weight: bold;
     }
-
     input[type='text'] {
       width: 100%;
       padding: 10px;
@@ -47,38 +49,63 @@ html_head = """<!DOCTYPE html>
       border: none;
       border-radius: 8px;
     }
-
     section {
       margin-bottom: 2rem;
       padding: 1rem;
-      background-color: rgba(30, 30, 30, 0.8);
+      background-color: rgba(30, 30, 30, 0.85);
       border-radius: 10px;
     }
-
     h2 {
       color: #B8FC26;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
     }
-
     audio {
       width: 100%;
       margin-top: 0.5rem;
     }
-
     p {
-      margin: 0.5rem 0;
+      margin: 0.4rem 0;
     }
   </style>
 </head>
 <body>
   <a href="../index.html" class="volver">⬅ Volver al Inicio</a>
-  <h1>🎙️ Todos los Episodios de El Grit Cast</h1>
+  <h1>🎧 Todos los Episodios de El Grit Cast</h1>
   <input type="text" id="busqueda" placeholder="Buscar episodio por título, invitado o tema...">
   <div id="episodios">
 """
 
-# Script para filtrar episodios con la barra de búsqueda
-html_script = """
+# Generar cada bloque de episodio
+episodes_html = ""
+for _, row in df.iterrows():
+    num_raw = row.get("número") or row.get("\ufeffnúmero")  # Manejo de BOM
+    num = str(num_raw).zfill(3)
+    invitado = row["invitado"]
+    titulo = row["título"]
+    fecha_str = row["fecha"]
+    try:
+        fecha = datetime.strptime(fecha_str, "%Y-%m-%d").strftime("%d/%m/%Y")
+    except:
+        fecha = fecha_str
+    url = row["url_mp3"]
+    temas = row["temas"]
+
+    episode_block = f"""
+    <section>
+      <h2>🎙️ Episodio {num}: {titulo}</h2>
+      <p><strong>Invitado:</strong> {invitado}</p>
+      <p><strong>Fecha:</strong> {fecha}</p>
+      <p><strong>Temas:</strong> {temas}</p>
+      <audio controls preload="none">
+        <source src="{url}" type="audio/mpeg">
+        Tu navegador no soporta audio.
+      </audio>
+    </section>
+    """
+    episodes_html += episode_block
+
+# Script para buscar episodios + cierre HTML
+html_end = """
   </div>
   <script>
     const input = document.getElementById("busqueda");
@@ -95,26 +122,8 @@ html_script = """
 </html>
 """
 
-# Generar HTML para cada episodio
-episodes_html = ""
-for _, row in df.iterrows():
-    num = str(row["número"]).zfill(3)
-    titulo = row["título"] or f"Episodio {num}"
-    fecha = datetime.strptime(row["fecha"], "%Y-%m-%d").strftime("%d/%m/%Y")
-    episodio = f"""
-    <section>
-      <h2>Episodio {num}: {titulo}</h2>
-      <p><strong>Invitado:</strong> {row["invitado"]}</p>
-      <p><strong>Fecha:</strong> {fecha}</p>
-      <p><strong>Temas:</strong> {row["temas"]}</p>
-      <audio controls preload="none">
-        <source src="{row["url_mp3"]}" type="audio/mpeg">
-        Tu navegador no soporta el reproductor de audio.
-      </audio>
-    </section>
-    """
-    episodes_html += episodio
-
-# Guardar en episodios/index.html
+# Guardar archivo HTML generado
 with open("episodios/index.html", "w", encoding="utf-8") as f:
-    f.write(html_head + episodes_html + html_script)
+    f.write(html_head + episodes_html + html_end)
+
+print("✅ Página generada correctamente en episodios/index.html")
