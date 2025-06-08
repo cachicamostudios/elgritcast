@@ -9,20 +9,21 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #111;
+      background-color: #121212;
       color: #ffffff;
+      padding-bottom: 4rem;
     }
 
     header {
-      padding: 1rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin: 0;
+    .logo {
+      height: 50px;
+      width: auto;
     }
 
     .volver-btn {
@@ -38,34 +39,30 @@
 
     .search-container {
       text-align: center;
-      margin: 1rem 0;
+      margin: 1rem 2rem;
     }
 
     .search-container input {
       padding: 0.5rem;
       border-radius: 20px;
       border: none;
-      width: 80%;
-      max-width: 400px;
+      width: 90%;
+      max-width: 500px;
+      font-size: 1rem;
     }
 
     .episodio {
-      background: #1c1c1c;
+      background: #1e1e1e;
       margin: 1rem auto;
-      padding: 0.8rem;
-      border-radius: 10px;
-      max-width: 600px;
-      box-shadow: 0 0 10px rgba(184, 252, 38, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      max-width: 650px;
+      box-shadow: 0 0 10px rgba(184, 252, 38, 0.2);
     }
 
     .episodio h2 {
-      margin: 0 0 0.3rem 0;
+      margin: 0 0 0.5rem 0;
       font-size: 1.1rem;
-    }
-
-    .episodio p {
-      margin: 0.2rem 0;
-      font-size: 0.95rem;
     }
 
     .episodio audio {
@@ -88,7 +85,9 @@
 <body>
 
   <header>
-    <h1>Episodios</h1>
+    <a href="/">
+      <img src="../assets/el_grit_cast_cube_sin_fondo.png" alt="El Grit Cast logo" class="logo">
+    </a>
     <a class="volver-btn" href="/">← Volver</a>
   </header>
 
@@ -97,62 +96,7 @@
   </div>
 
   <div id="episodios-container">
-
-    <div class="episodio">
-      <h2>Ep. 1 — Diego Cisneros</h2>
-      <p><strong>Título:</strong> Nadar, Pedalear, Correr… y No Rendirse</p>
-      <p><strong>Fecha:</strong> 2024-10-10</p>
-      <p class="tags">Triatlón, Correr, Competencia</p>
-      <audio controls>
-        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3" type="audio/mpeg">
-        Tu navegador no soporta audio HTML.
-      </audio>
-    </div>
-
-    <div class="episodio">
-      <h2>Ep. 2 — Lilia Freitas</h2>
-      <p><strong>Título:</strong> Superviviente del Cáncer nos cuenta su motivadora historia</p>
-      <p><strong>Fecha:</strong> 2024-10-17</p>
-      <p class="tags">Cáncer, Resiliencia</p>
-      <audio controls>
-        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-002-lilia-freitas-ID3.MP3" type="audio/mpeg">
-        Tu navegador no soporta audio HTML.
-      </audio>
-    </div>
-
-    <div class="episodio">
-      <h2>Ep. 3 — José Manuel Rodríguez</h2>
-      <p><strong>Título:</strong> Crítica literaria y pasión por el arte</p>
-      <p><strong>Fecha:</strong> 2024-10-24</p>
-      <p class="tags">Literatura, Gabriel García Márquez</p>
-      <audio controls>
-        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-003-jose-manuel-rodriguez-ID3.MP3" type="audio/mpeg">
-        Tu navegador no soporta audio HTML.
-      </audio>
-    </div>
-
-    <div class="episodio">
-      <h2>Ep. 4 — José Luís Rodríguez</h2>
-      <p><strong>Título:</strong> El UTMB: “No hay otra carrera con ese nivel”.</p>
-      <p><strong>Fecha:</strong> 2024-10-31</p>
-      <p class="tags">Trailrunning, Ultra maratón, Montaña</p>
-      <audio controls>
-        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-004-jose-luis-rodriguez-ID3.MP3" type="audio/mpeg">
-        Tu navegador no soporta audio HTML.
-      </audio>
-    </div>
-
-    <div class="episodio">
-      <h2>Ep. 5 — Mayra Santos</h2>
-      <p><strong>Título:</strong> ¿Te has preguntado cómo alguien sobrevive 31 horas nadando sin parar?</p>
-      <p><strong>Fecha:</strong> 2024-11-07</p>
-      <p class="tags">Open Water Swimming, Grit, Guinness</p>
-      <audio controls>
-        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-005-mayra-santos-ID3.MP3" type="audio/mpeg">
-        Tu navegador no soporta audio HTML.
-      </audio>
-    </div>
-
+    <!-- Aquí el script insertará los episodios automáticamente -->
   </div>
 
   <div class="no-results" id="no-results" style="display: none;">
@@ -160,28 +104,90 @@
   </div>
 
   <script>
-    const busqueda = document.getElementById("busqueda");
-    const episodiosContainer = document.getElementById("episodios-container");
+    const episodios = [
+      {
+        numero: "001",
+        invitado: "Diego Cisneros",
+        titulo: "Nadar, Pedalear, Correr… y No Rendirse",
+        fecha: "2024-10-10",
+        mp3: "https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3",
+        temas: "Triatlón, Correr, Competencia"
+      },
+      {
+        numero: "002",
+        invitado: "Lilia Freitas",
+        titulo: "Superviviente del Cáncer nos cuenta su motivadora historia",
+        fecha: "2024-10-17",
+        mp3: "https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-002-lilia-freitas-ID3.MP3",
+        temas: "Cáncer, Resiliencia"
+      },
+      {
+        numero: "003",
+        invitado: "José Manuel Rodríguez",
+        titulo: "Crítica literaria y pasión por el arte",
+        fecha: "2024-10-24",
+        mp3: "https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-003-jose-manuel-rodriguez-ID3.MP3",
+        temas: "Literatura, Gabriel García Márquez"
+      },
+      {
+        numero: "004",
+        invitado: "José Luís Rodríguez",
+        titulo: "El UTMB: “No hay otra carrera con ese nivel”.",
+        fecha: "2024-10-31",
+        mp3: "https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-004-jose-luis-rodriguez-ID3.MP3",
+        temas: "Trailrunning, Ultra maratón, Montaña"
+      },
+      {
+        numero: "005",
+        invitado: "Mayra Santos",
+        titulo: "¿Te has preguntado cómo alguien sobrevive 31 horas nadando sin parar?",
+        fecha: "2024-11-07",
+        mp3: "https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-005-mayra-santos-ID3.MP3",
+        temas: "Open Water Swimming, Grit, Guinness"
+      }
+    ];
+
+    const container = document.getElementById("episodios-container");
+    const search = document.getElementById("busqueda");
     const noResults = document.getElementById("no-results");
 
-    function renderEpisodios(filtrados) {
-      episodiosContainer.innerHTML = '';
-      if (filtrados.length === 0) {
-        noResults.style.display = 'block';
+    function renderEpisodios(lista) {
+      container.innerHTML = "";
+      if (lista.length === 0) {
+        noResults.style.display = "block";
+        return;
       } else {
-        noResults.style.display = 'none';
-        filtrados.forEach(ep => episodiosContainer.appendChild(ep));
+        noResults.style.display = "none";
       }
+
+      lista.forEach(ep => {
+        const div = document.createElement("div");
+        div.className = "episodio";
+        div.innerHTML = `
+          <h2>Episodio ${ep.numero}: ${ep.titulo}</h2>
+          <p><strong>Invitado:</strong> ${ep.invitado}</p>
+          <p><strong>Fecha:</strong> ${ep.fecha}</p>
+          <p class="tags"><strong>Temas:</strong> ${ep.temas}</p>
+          <audio controls preload="none">
+            <source src="${ep.mp3}" type="audio/mpeg" />
+            Tu navegador no soporta el reproductor de audio.
+          </audio>
+        `;
+        container.appendChild(div);
+      });
     }
 
-    busqueda.addEventListener("input", () => {
-      const query = busqueda.value.toLowerCase();
-      const episodios = Array.from(document.querySelectorAll(".episodio"));
+    search.addEventListener("input", () => {
+      const query = search.value.toLowerCase();
       const filtrados = episodios.filter(ep =>
-        ep.textContent.toLowerCase().includes(query)
+        ep.titulo.toLowerCase().includes(query) ||
+        ep.invitado.toLowerCase().includes(query) ||
+        ep.temas.toLowerCase().includes(query)
       );
       renderEpisodios(filtrados);
     });
+
+    renderEpisodios(episodios);
   </script>
 
 </body>
