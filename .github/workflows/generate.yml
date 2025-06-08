@@ -17,18 +17,22 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.10'
 
       - name: Instalar dependencias
         run: pip install pandas
 
       - name: Ejecutar script para generar episodios/index.html
-        run: python generate_html.py
+        run: |
+          echo "🛠 Ejecutando generate_html.py..."
+          python generate_html.py
 
       - name: Commit y push de cambios
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add episodios/index.html
-          git commit -m "Actualizar página de episodios automáticamente" || echo "Sin cambios para commit"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add episodios/index.html || echo "Nada para añadir"
+          git diff --cached --quiet || git commit -m "🔄 Página de episodios actualizada automáticamente"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
