@@ -6,6 +6,9 @@ on:
       - 'episodios.csv'
       - 'generate_html.py'
 
+permissions:
+  contents: write  # 🔓 Habilita permisos de escritura para git push
+
 jobs:
   build:
     runs-on: ubuntu-latest
