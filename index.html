@@ -29,6 +29,7 @@
       justify-content: center;
       text-align: center;
       flex-direction: column;
+      gap: 1rem;
     }
 
     .custom-button {
@@ -90,31 +91,24 @@
       font-size: 0.7rem;
     }
 
-    .audio-toggle {
+    .top-left-button {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      background-color: rgba(255, 255, 255, 0.75);
-      color: #000;
-      border: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      cursor: pointer;
+      top: 15px;
+      left: 15px;
+      background-color: transparent;
+      border: 2px solid #b8fc26;
+      color: #b8fc26;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    #audio-player {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 12px;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 0.6rem;
-      border-radius: 8px;
-    }
-
-    audio {
-      width: 250px;
+    .top-left-button:hover {
+      background-color: rgba(184, 252, 38, 0.1);
+      transform: scale(1.05);
     }
 
     @media (max-width: 600px) {
@@ -127,33 +121,19 @@
         padding: 0.7rem 0.8rem;
       }
 
-      .audio-toggle {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.6rem;
-      }
-
-      audio {
-        width: 180px;
+      .top-left-button {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Botón de reproducción -->
-  <button class="audio-toggle" onclick="document.getElementById('audio-player').style.display = 'block'">
-    ▶ Escuchar episodio
-  </button>
+  <!-- Botón superior izquierdo -->
+  <a class="top-left-button" href="episodios/index.html">🎧 Escuchar</a>
 
-  <!-- Reproductor visible al hacer clic -->
-  <div id="audio-player">
-    <audio controls>
-      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-024-andreina-fernandes-id3.MP3" type="audio/mpeg">
-      Tu navegador no soporta audio.
-    </audio>
-  </div>
-
-  <!-- Botón central con emojis -->
+  <!-- Botones principales -->
   <div class="hero-container">
     <a class="custom-button" href="https://y.at/🎧🎤🎥💪" target="_blank">
       🎧🎤🎥💪
@@ -168,7 +148,6 @@
       <input type="email" name="email" id="email" required />
       <label for="message" style="color: #000;">Mensaje</label>
       <textarea name="message" id="message" required rows="2"></textarea>
-      <!-- Redirección a página de agradecimiento -->
       <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html">
       <button type="submit">Enviar</button>
     </form>
