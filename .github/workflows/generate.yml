@@ -1,4 +1,4 @@
-name: Generar episodios.html
+name: Generar página de episodios
 
 on:
   push:
@@ -11,24 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Clonar repositorio
-      uses: actions/checkout@v3
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
 
-    - name: Configurar Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-    - name: Instalar dependencias
-      run: pip install pandas
+      - name: Instalar dependencias
+        run: pip install pandas
 
-    - name: Ejecutar script
-      run: python generate_html.py
+      - name: Ejecutar script para generar episodios/index.html
+        run: python generate_html.py
 
-    - name: Commit y push de cambios
-      run: |
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
-        git add episodios.html
-        git commit -m "Actualizar episodios.html automáticamente" || echo "No hay cambios"
-        git push
+      - name: Commit y push de cambios
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add episodios/index.html
+          git commit -m "Actualizar página de episodios automáticamente" || echo "Sin cambios para commit"
+          git push
