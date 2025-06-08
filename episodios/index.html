@@ -9,109 +9,163 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #121212;
+      background: url('../assets/fondo-episodios.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
       color: #ffffff;
-      padding: 2rem;
+    }
+
+    header {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     h1 {
-      color: #B8FC26;
+      font-size: 1.8rem;
+      margin: 0;
     }
 
-    .volver {
-      display: inline-block;
-      margin-bottom: 2rem;
-      padding: 10px 20px;
-      background-color: #B8FC26;
-      color: #000;
-      border-radius: 8px;
-      text-decoration: none;
+    .volver-btn {
+      background: transparent;
+      border: 2px solid #b8fc26;
+      color: #b8fc26;
+      padding: 0.4rem 0.8rem;
+      border-radius: 30px;
+      cursor: pointer;
       font-weight: bold;
+      text-decoration: none;
+    }
+
+    .search-container {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .search-container input {
+      padding: 0.4rem;
+      border-radius: 20px;
+      border: none;
+      width: 80%;
+      max-width: 400px;
     }
 
     .episodio {
-      background: #1e1e1e;
-      margin-bottom: 2rem;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(184, 252, 38, 0.2);
+      background: rgba(0, 0, 0, 0.65);
+      margin: 0.5rem auto;
+      padding: 0.7rem;
+      border-radius: 8px;
+      max-width: 600px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 6px rgba(184, 252, 38, 0.15);
     }
 
     .episodio h2 {
-      margin-top: 0;
-      color: #B8FC26;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
     }
 
     .episodio p {
-      margin: 0.5rem 0;
+      margin: 0.2rem 0;
     }
 
-    audio {
+    .episodio audio {
       width: 100%;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tags {
+      font-size: 0.85rem;
+      color: #b8fc26;
+    }
+
+    .no-results {
+      text-align: center;
+      color: #ccc;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <a href="index.html" class="volver">⬅ Volver al Inicio</a>
-  <h1>🎙️ Todos los Episodios de El Grit Cast</h1>
+  <header>
+    <h1>Episodios</h1>
+    <a class="volver-btn" href="../index.html">← Volver</a>
+  </header>
 
-  <div class="episodio">
-    <h2>Episodio 001: Nadar, Pedalear, Correr… y No Rendirse</h2>
-    <p><strong>Invitado:</strong> Diego Cisneros</p>
-    <p><strong>Fecha:</strong> 10/10/2024</p>
-    <p><strong>Temas:</strong> Triatlón, Correr, Competencia</p>
-    <audio controls>
-      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3" type="audio/mpeg">
-      Tu navegador no soporta el reproductor de audio.
-    </audio>
+  <div class="search-container">
+    <input type="text" id="busqueda" placeholder="Buscar por título o palabra clave...">
   </div>
 
-  <div class="episodio">
-    <h2>Episodio 002: Superviviente del Cáncer nos cuenta su motivadora historia</h2>
-    <p><strong>Invitado:</strong> Lilia Freitas</p>
-    <p><strong>Fecha:</strong> 17/10/2024</p>
-    <p><strong>Temas:</strong> Cáncer, Resiliencia</p>
-    <audio controls>
-      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-002-lilia-freitas-ID3.MP3" type="audio/mpeg">
-      Tu navegador no soporta el reproductor de audio.
-    </audio>
+  <div id="episodios-container">
+
+    <!-- Episodio 1 -->
+    <div class="episodio">
+      <h2>Ep. 1 — Diego Cisneros</h2>
+      <p><strong>Título:</strong> Nadar, Pedalear, Correr… y No Rendirse</p>
+      <p><strong>Fecha:</strong> 2024-10-10</p>
+      <p class="tags">Triatlón, Correr, Competencia</p>
+      <audio controls>
+        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML.
+      </audio>
+    </div>
+
+    <!-- Episodio 2 -->
+    <div class="episodio">
+      <h2>Ep. 2 — Lilia Freitas</h2>
+      <p><strong>Título:</strong> Superviviente del Cáncer nos cuenta su motivadora historia</p>
+      <p><strong>Fecha:</strong> 2024-10-17</p>
+      <p class="tags">Cáncer, Resiliencia</p>
+      <audio controls>
+        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-002-lilia-freitas-ID3.MP3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML.
+      </audio>
+    </div>
+
+    <!-- Episodio 3 -->
+    <div class="episodio">
+      <h2>Ep. 3 — José Manuel Rodríguez</h2>
+      <p><strong>Título:</strong> Crítica literaria y pasión por el arte</p>
+      <p><strong>Fecha:</strong> 2024-10-24</p>
+      <p class="tags">Literatura, Gabriel García Márquez</p>
+      <audio controls>
+        <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-003-jose-manuel-rodriguez-ID3.MP3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML.
+      </audio>
+    </div>
+
   </div>
 
-  <div class="episodio">
-    <h2>Episodio 003: Crítica literaria y pasión por el arte</h2>
-    <p><strong>Invitado:</strong> José Manuel Rodríguez</p>
-    <p><strong>Fecha:</strong> 24/10/2024</p>
-    <p><strong>Temas:</strong> Literatura, Gabriel García Márquez</p>
-    <audio controls>
-      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-003-jose-manuel-rodriguez-ID3.MP3" type="audio/mpeg">
-      Tu navegador no soporta el reproductor de audio.
-    </audio>
+  <div class="no-results" id="no-results" style="display: none;">
+    No se encontraron episodios.
   </div>
 
-  <div class="episodio">
-    <h2>Episodio 004: El UTMB: “No hay otra carrera con ese nivel”.</h2>
-    <p><strong>Invitado:</strong> José Luís Rodríguez</p>
-    <p><strong>Fecha:</strong> 31/10/2024</p>
-    <p><strong>Temas:</strong> Trailrunning, Ultra maratón, Montaña</p>
-    <audio controls>
-      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-004-jose-luis-rodriguez-ID3.MP3" type="audio/mpeg">
-      Tu navegador no soporta el reproductor de audio.
-    </audio>
-  </div>
+  <script>
+    const busqueda = document.getElementById("busqueda");
+    const episodiosContainer = document.getElementById("episodios-container");
+    const noResults = document.getElementById("no-results");
 
-  <div class="episodio">
-    <h2>Episodio 005: ¿Te has preguntado cómo alguien sobrevive 31 horas nadando sin parar?</h2>
-    <p><strong>Invitado:</strong> Mayra Santos</p>
-    <p><strong>Fecha:</strong> 07/11/2024</p>
-    <p><strong>Temas:</strong> Open Water Swimming, Grit, Guinness</p>
-    <audio controls>
-      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-005-mayra-santos-ID3.MP3" type="audio/mpeg">
-      Tu navegador no soporta el reproductor de audio.
-    </audio>
-  </div>
+    function renderEpisodios(filtrados) {
+      episodiosContainer.innerHTML = '';
+      if (filtrados.length === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+        filtrados.forEach(ep => episodiosContainer.appendChild(ep));
+      }
+    }
+
+    busqueda.addEventListener("input", () => {
+      const query = busqueda.value.toLowerCase();
+      const episodios = Array.from(document.querySelectorAll(".episodio"));
+      const filtrados = episodios.filter(ep =>
+        ep.textContent.toLowerCase().includes(query)
+      );
+      renderEpisodios(filtrados);
+    });
+  </script>
 
 </body>
 </html>
-
