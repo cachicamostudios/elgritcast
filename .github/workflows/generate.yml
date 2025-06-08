@@ -6,9 +6,6 @@ on:
       - 'episodios.csv'
       - 'generate_html.py'
 
-permissions:
-  contents: write  # 🔓 Habilita permisos de escritura para git push
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,26 +13,26 @@ jobs:
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
 
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.x'
 
       - name: Instalar dependencias
         run: pip install pandas
 
       - name: Ejecutar script para generar episodios/index.html
-        run: |
-          echo "🛠 Ejecutando generate_html.py..."
-          python generate_html.py
+        run: python generate_html.py
 
       - name: Commit y push de cambios
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add episodios/index.html || echo "Nada para añadir"
-          git diff --cached --quiet || git commit -m "🔄 Página de episodios actualizada automáticamente"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add episodios/index.html
+          git commit -m "Actualizar página de episodios automáticamente" || echo "Sin cambios para commit"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
