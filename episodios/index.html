@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Episodios | El Grit Cast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: url('../assets/fondo-episodios.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #ffffff;
+    }
+
+    header {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .volver-btn {
+      background: transparent;
+      border: 2px solid #b8fc26;
+      color: #b8fc26;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .search-container {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .search-container input {
+      padding: 0.5rem;
+      border-radius: 20px;
+      border: none;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .episodio {
+      background: rgba(0, 0, 0, 0.7);
+      margin: 1rem auto;
+      padding: 1rem;
+      border-radius: 12px;
+      max-width: 700px;
+      box-shadow: 0 0 10px rgba(184, 252, 38, 0.2);
+    }
+
+    .episodio h2 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    .episodio audio {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .tags {
+      font-size: 0.85rem;
+      color: #b8fc26;
+    }
+
+    .no-results {
+      text-align: center;
+      color: #ccc;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Episodios</h1>
+    <a class="volver-btn" href="/">← Volver</a>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="busqueda" placeholder="Buscar por título o palabra clave...">
+  </div>
+
+  <div id="episodios-container">
+    <!-- Aquí el script insertará los episodios automáticamente -->
+  </div>
+
+  <div class="no-results" id="no-results" style="display: none;">
+    No se encontraron episodios.
+  </div>
+
+  <script>
+    const busqueda = document.getElementById("busqueda");
+    const episodiosContainer = document.getElementById("episodios-container");
+    const noResults = document.getElementById("no-results");
+
+    function renderEpisodios(filtrados) {
+      episodiosContainer.innerHTML = '';
+      if (filtrados.length === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+        filtrados.forEach(ep => episodiosContainer.appendChild(ep));
+      }
+    }
+
+    busqueda.addEventListener("input", () => {
+      const query = busqueda.value.toLowerCase();
+      const episodios = Array.from(document.querySelectorAll(".episodio"));
+      const filtrados = episodios.filter(ep =>
+        ep.textContent.toLowerCase().includes(query)
+      );
+      renderEpisodios(filtrados);
+    });
+  </script>
+
+</body>
+</html>
