@@ -9,121 +9,109 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: url('../assets/fondo-episodios.jpg') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
+      background: #121212;
       color: #ffffff;
-    }
-
-    header {
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 2rem;
     }
 
     h1 {
-      font-size: 2rem;
-      margin: 0;
+      color: #B8FC26;
     }
 
-    .volver-btn {
-      background: transparent;
-      border: 2px solid #b8fc26;
-      color: #b8fc26;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: bold;
+    .volver {
+      display: inline-block;
+      margin-bottom: 2rem;
+      padding: 10px 20px;
+      background-color: #B8FC26;
+      color: #000;
+      border-radius: 8px;
       text-decoration: none;
-    }
-
-    .search-container {
-      text-align: center;
-      margin: 1rem 0;
-    }
-
-    .search-container input {
-      padding: 0.5rem;
-      border-radius: 20px;
-      border: none;
-      width: 80%;
-      max-width: 400px;
+      font-weight: bold;
     }
 
     .episodio {
-      background: rgba(0, 0, 0, 0.7);
-      margin: 1rem auto;
+      background: #1e1e1e;
+      margin-bottom: 2rem;
       padding: 1rem;
       border-radius: 12px;
-      max-width: 700px;
       box-shadow: 0 0 10px rgba(184, 252, 38, 0.2);
     }
 
     .episodio h2 {
-      margin: 0 0 0.5rem 0;
+      margin-top: 0;
+      color: #B8FC26;
     }
 
-    .episodio audio {
+    .episodio p {
+      margin: 0.5rem 0;
+    }
+
+    audio {
       width: 100%;
-      margin-top: 0.5rem;
-    }
-
-    .tags {
-      font-size: 0.85rem;
-      color: #b8fc26;
-    }
-
-    .no-results {
-      text-align: center;
-      color: #ccc;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Episodios</h1>
-    <a class="volver-btn" href="/">← Volver</a>
-  </header>
+  <a href="index.html" class="volver">⬅ Volver al Inicio</a>
+  <h1>🎙️ Todos los Episodios de El Grit Cast</h1>
 
-  <div class="search-container">
-    <input type="text" id="busqueda" placeholder="Buscar por título o palabra clave...">
+  <div class="episodio">
+    <h2>Episodio 001: Nadar, Pedalear, Correr… y No Rendirse</h2>
+    <p><strong>Invitado:</strong> Diego Cisneros</p>
+    <p><strong>Fecha:</strong> 10/10/2024</p>
+    <p><strong>Temas:</strong> Triatlón, Correr, Competencia</p>
+    <audio controls>
+      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3" type="audio/mpeg">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
   </div>
 
-  <div id="episodios-container">
-    <!-- Aquí el script insertará los episodios automáticamente -->
+  <div class="episodio">
+    <h2>Episodio 002: Superviviente del Cáncer nos cuenta su motivadora historia</h2>
+    <p><strong>Invitado:</strong> Lilia Freitas</p>
+    <p><strong>Fecha:</strong> 17/10/2024</p>
+    <p><strong>Temas:</strong> Cáncer, Resiliencia</p>
+    <audio controls>
+      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-002-lilia-freitas-ID3.MP3" type="audio/mpeg">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
   </div>
 
-  <div class="no-results" id="no-results" style="display: none;">
-    No se encontraron episodios.
+  <div class="episodio">
+    <h2>Episodio 003: Crítica literaria y pasión por el arte</h2>
+    <p><strong>Invitado:</strong> José Manuel Rodríguez</p>
+    <p><strong>Fecha:</strong> 24/10/2024</p>
+    <p><strong>Temas:</strong> Literatura, Gabriel García Márquez</p>
+    <audio controls>
+      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-003-jose-manuel-rodriguez-ID3.MP3" type="audio/mpeg">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
   </div>
 
-  <script>
-    const busqueda = document.getElementById("busqueda");
-    const episodiosContainer = document.getElementById("episodios-container");
-    const noResults = document.getElementById("no-results");
+  <div class="episodio">
+    <h2>Episodio 004: El UTMB: “No hay otra carrera con ese nivel”.</h2>
+    <p><strong>Invitado:</strong> José Luís Rodríguez</p>
+    <p><strong>Fecha:</strong> 31/10/2024</p>
+    <p><strong>Temas:</strong> Trailrunning, Ultra maratón, Montaña</p>
+    <audio controls>
+      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-004-jose-luis-rodriguez-ID3.MP3" type="audio/mpeg">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
+  </div>
 
-    function renderEpisodios(filtrados) {
-      episodiosContainer.innerHTML = '';
-      if (filtrados.length === 0) {
-        noResults.style.display = 'block';
-      } else {
-        noResults.style.display = 'none';
-        filtrados.forEach(ep => episodiosContainer.appendChild(ep));
-      }
-    }
-
-    busqueda.addEventListener("input", () => {
-      const query = busqueda.value.toLowerCase();
-      const episodios = Array.from(document.querySelectorAll(".episodio"));
-      const filtrados = episodios.filter(ep =>
-        ep.textContent.toLowerCase().includes(query)
-      );
-      renderEpisodios(filtrados);
-    });
-  </script>
+  <div class="episodio">
+    <h2>Episodio 005: ¿Te has preguntado cómo alguien sobrevive 31 horas nadando sin parar?</h2>
+    <p><strong>Invitado:</strong> Mayra Santos</p>
+    <p><strong>Fecha:</strong> 07/11/2024</p>
+    <p><strong>Temas:</strong> Open Water Swimming, Grit, Guinness</p>
+    <audio controls>
+      <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-005-mayra-santos-ID3.MP3" type="audio/mpeg">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
+  </div>
 
 </body>
 </html>
+
