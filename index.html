@@ -111,22 +111,27 @@
       transform: scale(1.05);
     }
 
-    .top-right-icons {
+    .youtube-icon {
       position: fixed;
       top: 15px;
       right: 15px;
-      display: flex;
-      gap: 10px;
       z-index: 50;
-    }
-
-    .top-right-icons a img {
-      width: 32px;
-      height: 32px;
       transition: opacity 0.3s ease;
     }
 
-    .top-right-icons a:hover img {
+    .youtube-icon:hover {
+      opacity: 0.8;
+    }
+
+    .instagram-footer {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 50;
+      transition: opacity 0.3s ease;
+    }
+
+    .instagram-footer:hover {
       opacity: 0.8;
     }
 
@@ -145,7 +150,8 @@
         padding: 0.3rem 0.8rem;
       }
 
-      .top-right-icons a img {
+      .youtube-icon img,
+      .instagram-footer img {
         width: 28px;
         height: 28px;
       }
@@ -157,15 +163,10 @@
   <!-- Botón superior izquierdo -->
   <a class="top-left-button" href="episodios/index.html">🎧 Escuchar</a>
 
-  <!-- Íconos sociales en la esquina superior derecha -->
-  <div class="top-right-icons">
-    <a href="https://www.youtube.com/@elgritcast" target="_blank">
-      <img src="assets/youtube-svgrepo-com copia.svg" alt="YouTube">
-    </a>
-    <a href="https://www.instagram.com/elgritcast/" target="_blank">
-      <img src="assets/instagram-svgrepo-com copia.svg" alt="Instagram">
-    </a>
-  </div>
+  <!-- Ícono YouTube arriba derecha -->
+  <a href="https://www.youtube.com/@elgritcast" target="_blank" class="youtube-icon">
+    <img src="assets/youtube-svgrepo-com copia.svg" alt="YouTube" width="32" height="32">
+  </a>
 
   <!-- Botón principal -->
   <div class="hero-container">
@@ -186,6 +187,11 @@
       <button type="submit">Enviar</button>
     </form>
   </div>
+
+  <!-- Ícono Instagram en el footer -->
+  <a href="https://www.instagram.com/elgritcast/" target="_blank" class="instagram-footer">
+    <img src="assets/instagram-svgrepo-com copia.svg" alt="Instagram" width="32" height="32">
+  </a>
 
   <!-- GoatCounter -->
   <script data-goatcounter="https://elgritcast.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
