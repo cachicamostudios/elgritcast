@@ -111,6 +111,25 @@
       transform: scale(1.05);
     }
 
+    .top-right-icons {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 50;
+    }
+
+    .top-right-icons a img {
+      width: 32px;
+      height: 32px;
+      transition: opacity 0.3s ease;
+    }
+
+    .top-right-icons a:hover img {
+      opacity: 0.8;
+    }
+
     @media (max-width: 600px) {
       .custom-button {
         font-size: 1rem;
@@ -125,6 +144,11 @@
         font-size: 0.75rem;
         padding: 0.3rem 0.8rem;
       }
+
+      .top-right-icons a img {
+        width: 28px;
+        height: 28px;
+      }
     }
   </style>
 </head>
@@ -133,7 +157,17 @@
   <!-- Botón superior izquierdo -->
   <a class="top-left-button" href="episodios/index.html">🎧 Escuchar</a>
 
-  <!-- Botones principales -->
+  <!-- Íconos sociales en la esquina superior derecha -->
+  <div class="top-right-icons">
+    <a href="https://www.youtube.com/@elgritcast" target="_blank">
+      <img src="assets/youtube-svgrepo-com copia.svg" alt="YouTube">
+    </a>
+    <a href="https://www.instagram.com/elgritcast/" target="_blank">
+      <img src="assets/instagram-svgrepo-com copia.svg" alt="Instagram">
+    </a>
+  </div>
+
+  <!-- Botón principal -->
   <div class="hero-container">
     <a class="custom-button" href="https://y.at/🎧🎤🎥💪" target="_blank">
       🎧🎤🎥💪
