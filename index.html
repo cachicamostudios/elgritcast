@@ -9,158 +9,7 @@
   <meta name="google-site-verification" content="29Tyu8Xpd_rbET3ok-Rd7mvHfxsWeNUdXZ2LcAeeR0M" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #000;
-      background: url('assets/fondo.jpg') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-      color: #ffffff;
-      height: 100vh;
-    }
-
-    .hero-container {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .custom-button {
-      background-color: rgba(0, 0, 0, 0.75);
-      color: #ffffff;
-      font-weight: bold;
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .custom-button:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-    }
-
-    .form-container {
-      display: flex;
-      justify-content: center;
-      padding: 2rem 0.5rem;
-    }
-
-    .form-box {
-      background-color: rgba(212, 211, 211, 0.85);
-      padding: 0.8rem 1rem;
-      border-radius: 12px;
-      max-width: 260px;
-      width: 100%;
-      text-align: left;
-      font-size: 0.7rem;
-    }
-
-    .form-box h2 {
-      font-size: 0.8rem;
-      color: #000;
-      margin-bottom: 0.4rem;
-    }
-
-    .form-box input,
-    .form-box textarea {
-      width: 100%;
-      padding: 0.3rem;
-      margin-bottom: 0.4rem;
-      border-radius: 4px;
-      border: none;
-      font-size: 0.7rem;
-    }
-
-    .form-box button {
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.7rem;
-    }
-
-    .top-left-button {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background-color: transparent;
-      border: 2px solid #b8fc26;
-      color: #b8fc26;
-      padding: 0.4rem 1rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .top-left-button:hover {
-      background-color: rgba(184, 252, 38, 0.1);
-      transform: scale(1.05);
-    }
-
-    .youtube-icon {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 50;
-      transition: opacity 0.3s ease;
-    }
-
-    .youtube-icon:hover {
-      opacity: 0.8;
-    }
-
-    .instagram-footer {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      z-index: 50;
-      transition: opacity 0.3s ease;
-    }
-
-    .instagram-footer:hover {
-      opacity: 0.8;
-    }
-
-    @media (max-width: 600px) {
-      .custom-button {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-      }
-
-      .form-box {
-        padding: 0.7rem 0.8rem;
-      }
-
-      .top-left-button {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.8rem;
-      }
-
-      .youtube-icon img,
-      .instagram-footer img {
-        width: 28px;
-        height: 28px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
@@ -192,10 +41,15 @@
     </form>
   </div>
 
-  <!-- Ícono Instagram en el footer -->
-  <a href="https://www.instagram.com/elgritcast/" target="_blank" class="instagram-footer">
-    <img src="assets/instagram-svgrepo-com copia.svg" alt="Instagram" width="32" height="32">
-  </a>
+  <!-- Footer con íconos centrados -->
+  <footer style="text-align: center; padding: 1rem; font-size: 0.8rem;">
+    <a href="https://www.youtube.com/@elgritcast" target="_blank" style="margin: 0 0.5rem;">
+      <img src="assets/youtube-svgrepo-com copia.svg" alt="YouTube" width="24" height="24">
+    </a>
+    <a href="https://www.instagram.com/elgritcast/" target="_blank" style="margin: 0 0.5rem;">
+      <img src="assets/instagram-svgrepo-com copia.svg" alt="Instagram" width="24" height="24">
+    </a>
+  </footer>
 
   <!-- GoatCounter -->
   <script data-goatcounter="https://elgritcast.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
