@@ -13,7 +13,7 @@ body, html {
 }
 
 .background-layer {
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), url('assets/fondo.webp') center center / cover no-repeat fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), url('fondo.webp') center center / cover no-repeat fixed;
   position: fixed;
   top: 0; left: 0;
   width: 100vw;
@@ -24,8 +24,6 @@ body, html {
 /* Botones */
 .top-left-button,
 .custom-button {
-  background-color: #B8FC26;
-  color: #000;
   text-decoration: none;
   font-weight: 700;
   padding: 0.75rem 1.25rem;
@@ -36,6 +34,8 @@ body, html {
 }
 
 .top-left-button {
+  background-color: #B8FC26;
+  color: #000;
   top: 1rem;
   left: 1rem;
 }
@@ -47,14 +47,20 @@ body, html {
   z-index: 10;
 }
 
+/* Botón de emojis central */
 .custom-button {
+  background-color: rgba(0, 0, 0, 0.75);  /* fondo negro semitransparente */
   font-size: 2rem;
-  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem; /* estilo cápsula */
   display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
 }
 .custom-button:hover {
   transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 /* Hero principal */
