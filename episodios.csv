@@ -1,7 +1,16 @@
-número|invitado|título|fecha|url_mp3|temas
-1|Diego Cisneros|Nadar, Pedalear, Correr… y No Rendirse|2024-10-10|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3|Triatlón, Correr, Competencia
-2|Lilia Freitas|Superviviente del Cáncer nos cuenta su motivadora historia|2024-10-17|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-002-lilia-freitas-ID3.MP3|Cáncer, Resiliencia
-3|José Manuel Rodríguez|Crítica literaria y pasión por el arte|2024-10-24|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-003-jose-manuel-rodriguez-ID3.MP3|Literatura, Gabriel García Márquez
-4|José Luís Rodríguez|El UTMB: “No hay otra carrera con ese nivel”.|2024-10-31|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-004-jose-luis-rodriguez-ID3.MP3|Trailrunning, Ultra maratón, Montaña
-5|Mayra Santos|¿Te has preguntado cómo alguien sobrevive 31 horas nadando sin parar?|2024-11-07|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-005-mayra-santos-ID3.MP3|Open Water Swimming, Grit, Guinness
-6|
+número|invitado|título|fecha|hh:mm:ss|url_mp3|temas
+1|Diego Cisneros|Nadar, Pedalear, Correr… y No Rendirse|2024-10-10|45:02|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3|Triatlón, Correr, Competencia
+2|Lilia Freitas|Superviviente del Cáncer nos cuenta su motivadora historia|2024-10-17|1:18:05|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-002-lilia-freitas-ID3.MP3|Cáncer, Resiliencia
+3|José Manuel Rodríguez|Crítica literaria y pasión por el arte|2024-10-24|1:22:04|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-003-jose-manuel-rodriguez-ID3.MP3|Literatura, Gabriel García Márquez
+4|José Luís Rodríguez|El UTMB: “No hay otra carrera con ese nivel”.|2024-10-31|1:11:08|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-004-jose-luis-rodriguez-ID3.MP3|Trailrunning, Ultra maratón, Montaña
+5|Mayra Santos|¿Te has preguntado cómo alguien sobrevive 31 horas nadando sin parar?|2024-11-07|1:20:10|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-005-mayra-santos-ID3.MP3|Open Water Swimming, Grit, Guinness
+6|Aneclet Teixeira|No Nació Rico: El Grit Detrás de un Empresario Exitoso|2024-11-14|2:10:49|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-006-aneclet-teixeira-ID3.MP3|Grit, Empresario, Perseverancia, Éxito, Fe
+7|Ricky Tavares|"Cristiano Ronaldo es mi Ídolo."|2024-11-21|0:42:42|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-007-ricky-tavares-metadata%20(1).MP3|Fútbol, Pasión, Grit, Constancia, Talento, Perseverancia
+8|Héctor de Franca|El Grit de un Cinturón Negro: Taekwondo Como Estilo de Vida|2024-11-28|1:13:17|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-008-hector-de-franca-ID3.MP3|Taekwondo, Artes Marciales, Enfoque, Grit, Perseverancia, Disciplina
+9|Ezequiel Gouveia|La Fisioterapia revolucionaria para aliviar el dolor|2024-12-05|1:15:54|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-009-ezequiel-gouveia-ID3.MP3|Fisioterapia, Dolor, Mejorar, Salud, Grit
+10|Marco Jardim|Belasteguín y Di Nenno son grandes ejemplos de GRIT en el Pádel|2024-12-12|1:16:27|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-010-marco-jardim-ID3.MP3|Pádel, Coach, Pasión, Grit, Perseverar
+11|Valentina Pestana|Sueño con Ser la número 1 del Pádel|2025-02-06|0:57:03|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-011-valentina-pestana-ID3.MP3|Pádel, Talento, Perseverar, Grit, Disciplina
+12|Charlie Gonçalves|La dominancia de Bitcoin es Resiliencia y Perseverancia|2025-02-13|1:51:35|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-012-charlie-goncalves-ID3.MP3|Bitcoin, Dinero, Grit, Comunidad, Resiliencia, Perseverancia
+13|Xavi Pita|El Grit de un Portero de Fútbol a Coach|2025-02-20|1:33:37|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-013-xavi-pita-ID3.MP3|Fútbol, Pasión, Grit, Coach, Constancia
+14|Gabriel "Pitoco" González|¿Qué Haríamos Sin Música?|2025-02-27|1:20:02|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-014-gabriel-pitoco-gonzalez-ID3.MP3|Música, Pasión, Grit, Constancia, Perseverancia
+15|Lisbeth Dos Ramos|Un Mensaje Importante a las Mujeres|2025-03-06|0:55:56|https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-015-lisbeth-dos-ramos-ID3.MP3|Grit, Paciencia, Resiliencia, Determinación, Amor, Madre, Mujer
