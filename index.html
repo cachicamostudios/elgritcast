@@ -2,217 +2,566 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Grit Cast</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>El Grit Cast - Donde las historias no se rinden</title>
+  <link rel="icon" href="el_grit_cast_cube_sin_fondo copia.png" type="image/png">
   <style>
-    * {
+    @font-face {
+      font-family: 'n27regular';
+      src: url('n27-regular-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    :root {
+      --color-bg: #d3d4d4;
+      --color-main: #b8fc26;
+      --color-dark: #373737;
+      --color-white: #fff;
+      --color-shadow: #373737;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 12px;
+      background: var(--color-bg);
+      border-bottom: 3px solid var(--color-dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-img {
+      height: 70px;
+      width: auto;
+      margin-right: 14px;
+      vertical-align: middle;
+    }
+    .header-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .btn-yat {
+      background: var(--color-dark);
+      color: var(--color-main);
+      font-size: 1.24rem;
+      font-weight: bold;
+      padding: 13px 40px;
+      border-radius: 15px;
+      border: 2.5px solid var(--color-main);
+      margin: 0 28px;
+      box-shadow: 6px 6px 0 var(--color-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: background .2s, color .2s, box-shadow .2s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .btn-yat:hover {
+      background: var(--color-main);
+      color: var(--color-dark);
+      box-shadow: 8px 8px 0 var(--color-dark);
+    }
+    nav {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--color-dark);
+      border-bottom: 2px solid transparent;
+      padding: 4px 7px;
+      border-radius: 8px;
+      transition: background .2s, border-bottom .2s;
+    }
+    nav a:hover,
+    nav a:focus {
+      background: var(--color-main);
+      border-bottom: 2px solid var(--color-dark);
+      outline: none;
+    }
+    /* -------- HERO -------- */
+    .hero {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 52px;
+      padding: 72px 6vw 44px 6vw;
+      background: #d3d4d4;
+    }
+    .hero-doodle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .hero-img {
+      max-width: 390px;
+      min-width: 200px;
+      width: 27vw;
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0px 12px 0 #373737;
+      background: #fff;
+      margin: 0;
+      display: block;
+      border: 4px solid #373737;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .frase-hero-bloque {
+      background: #b8fc26;
+      border-radius: 22px;
+      box-shadow: 12px 12px 0 #373737;
+      padding: 34px 38px 26px 38px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 750px;
+      width: 100%;
+      border: 4px solid #373737;
+    }
+    .frase-hero {
+      font-family: 'n27regular', Arial, sans-serif;
+      font-size: 2.7rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      color: #373737;
+      line-height: 1.05;
+      margin: 0;
+      text-align: center;
+      text-transform: uppercase;
+      text-align-last: center;
+      width: 100%;
+      align-self: center;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 26px;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 32px;
+      font-size: 1.12rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 #b8fc26;
+      transition: background .2s, color .2s;
+      background: #373737;
+      color: #b8fc26;
+      text-align: center;
+    }
+    .btn.secondary {
+      background: #fff;
+      color: #373737;
+      border: 2px solid #373737;
+      box-shadow: 3px 3px 0 #b8fc26;
+    }
+    .btn.primary:hover,
+    .btn.secondary:hover {
+      filter: brightness(1.13);
+      transform: translateY(-3px) scale(1.05);
+    }
+    /* -------- BLOQUES HORIZONTALES -------- */
+    .blocks-horizontal {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 36px;
+      padding: 48px 2vw 32px 2vw;
+      background: var(--color-bg);
+      flex-wrap: wrap;
+    }
+    .section-block {
+      background: var(--color-main);
+      border: 3px solid var(--color-dark);
+      border-radius: 22px;
+      padding: 32px 24px;
+      min-width: 260px;
+      max-width: 360px;
+      box-shadow: 10px 10px 0 0 var(--color-shadow);
+      margin-bottom: 12px;
+      flex: 1 1 290px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .section-block h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .episodes-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    .episodes-list li {
+      margin-bottom: 17px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .episode-audio {
+      width: 37px;
+      height: 37px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+      border-radius: 7px;
+      border: 1.5px solid #373737;
+      margin-bottom: 10px;
+    }
+    .episode-info {
+      width: 100%;
+    }
+    .newsletter-form input[type="email"] {
+      width: 95%;
+      padding: 10px;
+      border: 2px solid #373737;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+    .newsletter-form button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      background: var(--color-dark);
+      color: var(--color-main);
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .newsletter-form iframe {
+      width: 100%;
+      min-width: 200px;
+      border-radius: 12px;
+      border: 1.5px solid #373737;
+      background: #fff;
+      margin: 0 auto;
+      display: block;
+    }
+    .form-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 38px 0 0 0;
+    }
+    .form-box {
+      background: #b8fc26;
+      border: 3px solid #373737;
+      border-radius: 18px;
+      box-shadow: 10px 10px 0 0 #373737;
+      padding: 22px 26px 18px 26px;
+      min-width: 230px;
+      max-width: 320px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .form-box label {
+      font-weight: 700;
+      color: #373737;
+      letter-spacing: 0.04em;
+      font-size: 1.08rem;
+      margin-bottom: 2px;
+    }
+    .form-box input[type="email"],
+    .form-box textarea {
+      border: 2px solid #373737;
+      border-radius: 7px;
+      padding: 9px;
+      font-size: 1.03rem;
+      margin-bottom: 6px;
+      background: #fff;
+      color: #373737;
+      font-family: inherit;
+      width: 100%;
       box-sizing: border-box;
     }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #000;
-      background: url('assets/fondo.webp') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-      color: #ffffff;
-      height: 100vh;
-    }
-
-    .hero-container {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .custom-button {
-      background-color: rgba(0, 0, 0, 0.75);
-      color: #ffffff;
-      font-weight: bold;
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .custom-button:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-    }
-
-    .form-container {
-      display: flex;
-      justify-content: center;
-      padding: 2rem 0.5rem;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .form-box {
-      background-color: rgba(212, 211, 211, 0.85);
-      padding: 0.8rem 1rem;
-      border-radius: 12px;
-      max-width: 260px;
-      width: 100%;
-      text-align: left;
-      font-size: 0.7rem;
-    }
-
-    .form-box h2 {
-      font-size: 0.8rem;
-      color: #000;
-      margin-bottom: 0.4rem;
-    }
-
-    .form-box input,
     .form-box textarea {
-      width: 100%;
-      padding: 0.3rem;
-      margin-bottom: 0.4rem;
-      border-radius: 4px;
-      border: none;
-      font-size: 0.7rem;
+      min-height: 54px;
+      max-height: 120px;
+      resize: vertical;
     }
-
-    .form-box button {
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.7rem;
-    }
-
-    .top-left-button {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background-color: transparent;
-      border: 2px solid #b8fc26;
+    .form-box button[type="submit"] {
+      background: #373737;
       color: #b8fc26;
-      padding: 0.4rem 1rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 7px;
+      font-size: 1rem;
+      padding: 11px 0;
+      margin-top: 9px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 #373737;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background .2s, color .2s;
+    }
+    .form-box button[type="submit"]:hover {
+      background: #b8fc26;
+      color: #373737;
+      border: 2px solid #373737;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 34px;
+      margin: 35px 0 24px 0;
+      flex-wrap: wrap;
+    }
+    .social-links img {
+      width: 38px;
+      height: 38px;
+      transition: filter .2s, transform .2s;
+      filter: grayscale(0) brightness(1);
+      cursor: pointer;
+      border-radius: 9px;
+      background: #fff;
+    }
+    .social-links img[alt="Substack"] {
+      background: none;
+      border-radius: 6px;
+      border: 1.5px solid #ff6719;
+      padding: 2.5px;
+    }
+    .social-links img:hover {
+      filter: drop-shadow(2px 2px 0 var(--color-main)) brightness(1.1);
+      transform: scale(1.11) rotate(-4deg);
+    }
+    footer {
+      background: var(--color-bg);
+      border-top: 3px solid var(--color-dark);
+      text-align: center;
+      padding: 22px 10px 30px 10px;
+      font-size: 1.04rem;
+      margin-top: auto;
+    }
+    .dev-link {
+      color: var(--color-dark);
       font-weight: bold;
       text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      border-bottom: 1.5px dashed var(--color-dark);
+      transition: background .2s, color .2s;
+      padding: 2px 2px;
     }
-
-    .top-left-button:hover {
-      background-color: rgba(184, 252, 38, 0.1);
-      transform: scale(1.05);
+    .dev-link:hover {
+      background: var(--color-main);
+      color: var(--color-bg);
     }
-
-    .top-right-icon {
-      position: absolute;
-      top: 15px;
-      right: 15px;
+    @media (max-width: 1100px) {
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        padding: 34px 3vw 18px 3vw;
+      }
+      .hero-doodle, .hero-content {
+        width: 100%;
+      }
+      .hero-img {
+        max-width: 210px;
+        min-width: 90px;
+        width: 37vw;
+      }
+      .frase-hero-bloque {
+        padding: 18px 8vw 18px 8vw;
+        max-width: 99vw;
+      }
+      .frase-hero {
+        font-size: 1.25rem;
+      }
+      .hero-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
     }
-
-    .top-right-icon img {
-      filter: brightness(0) invert(1);
-      transition: transform 0.2s ease;
-    }
-
-    .top-right-icon img:hover {
-      transform: scale(1.1);
-    }
-
-    .social-icons-bottom {
-      margin-top: 1rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .social-icons-bottom img {
-      width: 24px;
-      height: 24px;
-      filter: brightness(0) invert(1);
-      transition: transform 0.2s ease;
-    }
-
-    .social-icons-bottom img:hover {
-      transform: scale(1.1);
-    }
-
-    @media (max-width: 600px) {
-      .custom-button {
+    @media (max-width: 800px) {
+      .hero {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+      }
+      .hero-doodle, .hero-content {
+        align-items: center;
+        width: 100%;
+      }
+      .hero-img {
+        max-width: 110px;
+        min-width: 70px;
+        width: 54vw;
+      }
+      .frase-hero {
         font-size: 1rem;
-        padding: 0.5rem 1rem;
+        text-align: center;
       }
-
-      .form-box {
-        padding: 0.7rem 0.8rem;
-      }
-
-      .top-left-button {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.8rem;
-      }
-
-      .top-right-icon img {
-        width: 24px;
-        height: 24px;
+      .frase-hero-bloque {
+        padding: 10px 4vw 10px 4vw;
       }
     }
   </style>
 </head>
 <body>
+  <!-- HEADER brutalista -->
+  <header>
+    <img class="logo-img" src="el_grit_cast_cube_sin_fondo copia.png" alt="Logo El Grit Cast" />
+    <div class="header-center">
+      <a class="btn-yat" href="https://y.at/🎧🎤🎥💪" target="_blank" rel="noopener">🎧🎤🎥💪 y.at</a>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="episodios/index.html">Episodios</a>
+      <a href="#nft">NFT Colección</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-  <!-- Botón superior izquierdo -->
-  <a class="top-left-button" href="episodios/index.html">🎧 Escuchar</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-doodle">
+      <img class="hero-img" src="podcast_doodle-removebg-preview.png" alt="Podcast Doodle Hero" />
+    </div>
+    <div class="hero-content">
+      <div class="frase-hero-bloque">
+        <h1 class="frase-hero">
+          El Grit Cast donde<br>las historias no se rinden.
+        </h1>
+      </div>
+      <div class="hero-buttons">
+        <a class="btn primary" href="https://youtube.com/@elgritcast" target="_blank">
+          <img src="youtube_logo_vactor.svg" alt="YouTube" style="height:22px;vertical-align:middle;margin-right:8px;"> YouTube
+        </a>
+        <a class="btn secondary" href="episodios/index.html">
+          Episodios
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <!-- Ícono de YouTube arriba derecha -->
-  <div class="top-right-icon">
-    <a href="https://www.youtube.com/@elgritcast" target="_blank">
-      <img src="assets/youtube-svgrepo-com copia.svg" alt="YouTube" width="28" height="28">
-    </a>
+  <!-- BLOQUES HORIZONTALES -->
+  <div class="blocks-horizontal">
+    <section class="section-block" id="nft">
+      <h2>NFT Colección</h2>
+      <img src="https://via.placeholder.com/110x110?text=NFT+Hero" alt="NFT Hero" style="border-radius:14px; margin-bottom:10px;">
+      <p>Descubre a los héroes de GRIT en nuestra colección NFT. ¡Próximamente Julio César!</p>
+    </section>
+
+    <section class="section-block newsletter-form">
+      <h2>Suscríbete a nuestro Newsletter</h2>
+      <iframe src="https://elgritcast.substack.com/embed" width="100%" height="320" style="border:1.5px solid #373737; background:white; border-radius:12px;" frameborder="0" scrolling="no"></iframe>
+    </section>
+
+    <section class="section-block" id="episodios">
+      <h2>Último episodio</h2>
+      <ul class="episodes-list">
+        <li>
+          <span class="episode-audio">
+            <img src="youtube_logo_vactor.svg" alt="Audio episodio" width="30" />
+          </span>
+          <div class="episode-info">
+            <strong>Episodio 015: Un Mensaje Importante a las Mujeres</strong><br>
+            <span>Invitado: Lisbeth Dos Ramos</span>
+          </div>
+          <audio controls preload="none" style="width:100%;margin:10px 0 8px 0;">
+            <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-015-lisbeth-dos-ramos-ID3.MP3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+          <a class="btn secondary" style="margin-top:10px;" href="episodios/index.html">Escuchar todos los episodios</a>
+        </li>
+      </ul>
+    </section>
   </div>
 
-  <!-- Botón central -->
-  <div class="hero-container">
-    <a class="custom-button" href="https://y.at/🎧🎤🎥💪" target="_blank">
-      🎧🎤🎥💪
-    </a>
-  </div>
-
-  <!-- Formulario -->
-  <div class="form-container">
+  <!-- FORMULARIO CONTACTO -->
+  <section id="contacto" class="form-container">
     <form class="form-box" action="https://formspree.io/f/xkgbnjpr" method="POST">
-      <h2>Contacto</h2>
-      <label for="email" style="color: #000;">Email</label>
+      <h2 style="color:#373737;">Contacto</h2>
+      <label for="email">Email</label>
       <input type="email" name="email" id="email" required />
-      <label for="message" style="color: #000;">Mensaje</label>
-      <textarea name="message" id="message" required rows="2"></textarea>
+      <label for="message">Mensaje</label>
+      <textarea name="message" id="message" required rows="4"></textarea>
       <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html">
       <button type="submit">Enviar</button>
     </form>
+  </section>
 
-    <!-- Íconos sociales debajo del formulario -->
-    <div class="social-icons-bottom">
-      <a href="https://www.youtube.com/@elgritcast" target="_blank">
-        <img src="assets/youtube-svgrepo-com copia.svg" alt="YouTube">
-      </a>
-      <a href="https://www.instagram.com/elgritcast/" target="_blank">
-        <img src="assets/instagram-svgrepo-com copia.svg" alt="Instagram">
-      </a>
-    </div>
+  <!-- REDES SOCIALES -->
+  <div class="social-links">
+    <a href="https://youtube.com/@elgritcast" target="_blank" title="YouTube">
+      <img src="youtube_logo_vactor.svg" alt="YouTube" />
+    </a>
+    <a href="https://t.me/+8xweB6VJ4ZsyNmM0" target="_blank" title="Telegram">
+      <img src="Telegram Messenger New-01.svg" alt="Telegram" />
+    </a>
+    <a href="https://instagram.com/elgritcast" target="_blank" title="Instagram">
+      <img src="fd8030a8e325fbf76bcad74cb99a1f99.svg" alt="Instagram" />
+    </a>
+    <a href="https://bsky.app/profile/elgritcast.bsky.social" target="_blank" title="Bluesky">
+      <img src="bluesky_media_kit_logo_transparent_1_2-removebg-preview.png" alt="Bluesky" />
+    </a>
+    <a href="https://substack.com/@elgritcast?utm_source=user-menu" target="_blank" title="Newsletter (Substack)">
+      <img src="substack.png" alt="Substack" />
+    </a>
   </div>
 
-  <!-- GoatCounter -->
-  <script data-goatcounter="https://elgritcast.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-
+  <!-- FOOTER -->
+  <footer>
+    <div style="margin-bottom: 8px; font-weight: bold;">
+      Copyright © El Grit Cast 2025
+    </div>
+    <div style="margin-bottom: 6px;">
+      <a href="#contacto" style="color:#373737;text-decoration:underline;font-weight:600;">Contacto</a>
+      &nbsp;|&nbsp;
+      Desarrollado por
+      <a class="dev-link" href="https://www.cachicamo.studio/" target="_blank" rel="noopener">
+        CACHICAMO STUDIOS LLC
+      </a>
+    </div>
+    <div style="font-size: 0.99rem; color: #878787;">
+      <a href="https://elgritcast.com/privacidad.html" style="color:#878787; text-decoration:underline; margin-right:14px;">Política de privacidad</a>
+      <a href="https://elgritcast.com/aviso-legal.html" style="color:#878787; text-decoration:underline;">Aviso legal</a>
+    </div>
+  </footer>
 </body>
 </html>

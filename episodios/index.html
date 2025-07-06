@@ -2,33 +2,202 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Episodios | El Grit Cast</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../el_grit_cast_cube_sin_fondo copia.png" type="image/png">
   <style>
-    body{margin:0;font-family:'Inter',sans-serif;background:#0f0f0f;color:#fff}
-    header{display:flex;justify-content:space-between;align-items:center;padding:1rem}
-    header img{height:48px;width:auto}
-    .volver-btn{background:transparent;border:2px solid #b8fc26;color:#b8fc26;padding:.5rem 1rem;border-radius:30px;cursor:pointer;font-weight:bold;text-decoration:none}
-    .search-container{text-align:center;margin:1rem 0}
-    .search-container input{padding:.5rem;border-radius:20px;border:none;width:80%;max-width:400px}
-    .episodio{background:#1a1a1a;margin:1rem auto;padding:1rem;border-radius:12px;max-width:700px;box-shadow:0 0 10px rgba(184,252,38,.15)}
-    .episodio h2{margin:0 0 .5rem 0}
-    .episodio audio{width:100%;margin-top:.5rem}
-    .tags{font-size:.85rem;color:#b8fc26}
-    .no-results{text-align:center;color:#ccc;margin-top:2rem}
+    @font-face {
+      font-family: 'n27regular';
+      src: url('../n27-regular-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    :root {
+      --color-bg: #d3d4d4;
+      --color-main: #b8fc26;
+      --color-dark: #373737;
+      --color-white: #fff;
+      --color-shadow: #373737;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'n27regular', Arial, sans-serif;
+      background: var(--color-bg) url('episodios-bg.svg');
+      background-repeat: repeat;
+      background-size: 600px;
+
+      color: var(--color-dark);
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 32px 16px 32px;
+      background: var(--color-bg);
+      border-bottom: 3px solid var(--color-dark);
+    }
+    .logo-img {
+      height: 62px;
+      width: auto;
+      margin-right: 18px;
+      vertical-align: middle;
+    }
+    .volver-btn {
+      background: var(--color-main);
+      border: 2.5px solid var(--color-dark);
+      color: var(--color-dark);
+      font-size: 1.18rem;
+      font-weight: bold;
+      padding: 10px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 7px 7px 0 var(--color-shadow);
+      transition: background .2s, color .2s, box-shadow .2s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-left: 20px;
+    }
+    .volver-btn:hover {
+      background: var(--color-dark);
+      color: var(--color-main);
+      box-shadow: 10px 10px 0 var(--color-main);
+    }
+    .episodios-title {
+      text-align: center;
+      font-family: 'n27regular', Arial, sans-serif;
+      font-size: 2.3rem;
+      letter-spacing: 0.03em;
+      font-weight: bold;
+      background: var(--color-main);
+      border: 3px solid var(--color-dark);
+      border-radius: 18px;
+      box-shadow: 8px 8px 0 var(--color-dark);
+      margin: 32px auto 14px auto;
+      padding: 22px 10px 16px 10px;
+      max-width: 560px;
+      text-transform: uppercase;
+    }
+    .search-container {
+      text-align: center;
+      margin: 26px 0 34px 0;
+    }
+    .search-container input {
+      padding: 13px 18px;
+      border-radius: 20px;
+      border: 2px solid var(--color-dark);
+      width: 88vw;
+      max-width: 370px;
+      background: var(--color-white);
+      color: var(--color-dark);
+      font-size: 1.18rem;
+      font-family: 'n27regular', Arial, sans-serif;
+      margin: 0 auto;
+      box-shadow: 2.5px 2.5px 0 var(--color-main);
+      transition: border .2s, box-shadow .2s;
+    }
+    .search-container input:focus {
+      border: 2.5px solid var(--color-main);
+      outline: none;
+      box-shadow: 6px 6px 0 var(--color-dark);
+    }
+    #episodios-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .episodio {
+      background: var(--color-main);
+      margin: 0 auto;
+      padding: 34px 32px 23px 32px;
+      border-radius: 22px;
+      max-width: 540px;
+      min-width: 200px;
+      box-shadow: 11px 11px 0 var(--color-shadow);
+      border: 4px solid var(--color-dark);
+      margin-bottom: 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 1.04rem;
+    }
+    .episodio h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      font-family: 'n27regular', Arial, sans-serif;
+      letter-spacing: 0.02em;
+      font-weight: bold;
+      color: var(--color-dark);
+    }
+    .episodio p {
+      margin: 0 0 5px 0;
+      color: var(--color-dark);
+      font-size: 1.07rem;
+    }
+    .episodio audio {
+      width: 100%;
+      margin: 15px 0 3px 0;
+      border-radius: 6px;
+      border: 2px solid #373737;
+      background: #fff;
+      box-shadow: 2.5px 2.5px 0 #373737;
+    }
+    .tags {
+      font-size: .92rem;
+      color: #184e00;
+      background: #f4ffed;
+      border-radius: 7px;
+      padding: 4px 11px 2px 11px;
+      font-weight: bold;
+      margin-top: 6px;
+      border: 1.3px solid #373737;
+      display: inline-block;
+    }
+    .no-results {
+      text-align: center;
+      color: #444;
+      margin-top: 2rem;
+      background: var(--color-main);
+      border: 2px solid var(--color-dark);
+      border-radius: 12px;
+      box-shadow: 6px 6px 0 var(--color-dark);
+      max-width: 420px;
+      margin: 42px auto;
+      font-size: 1.28rem;
+      font-weight: bold;
+      padding: 22px 12px;
+      display: none;
+    }
+    @media (max-width: 700px) {
+      header { flex-direction: column; gap: 12px; padding: 18px 2vw 10px 2vw; }
+      .logo-img { height: 42px; margin: 0; }
+      .volver-btn { padding: 9px 16px; font-size: .99rem; }
+      .episodios-title { font-size: 1.28rem; padding: 12px 4vw 8px 4vw; }
+      .episodio { padding: 18px 3vw 13px 3vw; }
+      .episodio h2 { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <a href="../index.html"><img src="../assets/el_grit_cast_cube_sin_fondo copia.png" alt="Logo El Grit Cast" title="Volver al inicio"></a>
+    <a href="../index.html"><img class="logo-img" src="../el_grit_cast_cube_sin_fondo copia.png" alt="Logo El Grit Cast" title="Volver al inicio"></a>
     <a class="volver-btn" href="../index.html">← Volver</a>
   </header>
 
-  <div class="search-container"><input type="text" id="busqueda" placeholder="Buscar por título o palabra clave..."></div>
+  <div class="episodios-title">Todos los Episodios</div>
+
+  <div class="search-container">
+    <input type="text" id="busqueda" placeholder="Buscar por título, invitado o palabra clave...">
+  </div>
 
   <div id="episodios-container">
-    <!-- ===== EPISODIOS 001 – 015 ===== -->
+    <!-- EPISODIOS: Pega aquí tus bloques de episodio -->
+    <!-- ... tus bloques tal como los tienes ... -->
+<!-- ===== EPISODIOS 001 – 015 ===== -->
     <!-- 001 -->
     <div class="episodio"><h2>Episodio 001: Nadar, Pedalear, Correr… y No Rendirse</h2><p><strong>Invitado:</strong> Diego Cisneros</p><p><strong>Fecha:</strong> 2024-10-10</p><p class="tags">Temas: Triatlón, Correr, Competencia</p><audio controls preload="none"><source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-001-diego-cisneros-ID3.MP3" type="audio/mpeg"></audio></div>
     <!-- 002 -->
@@ -109,7 +278,9 @@
     <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-015-lisbeth-dos-ramos-ID3.MP3" type="audio/mpeg">
   </audio>
 </div>
-                                                                                                                                                        <script>
+
+  <div id="no-results" class="no-results" style="display:none;">No se encontraron episodios.</div>
+  <script>
     const busqueda = document.getElementById("busqueda");
     const episodiosContainer = document.getElementById("episodios-container");
     const noResults = document.getElementById("no-results");
@@ -133,6 +304,46 @@
       renderEpisodios(filtrados);
     });
   </script>
-
 </body>
+<footer style="
+  background: #b8fc26;
+  color: #373737;
+  border-top: 4px solid #373737;
+  box-shadow: 0 -9px 0 #373737;
+  margin-top: 40px;
+  font-family: 'n27regular', Arial, sans-serif;
+  padding: 30px 0 18px 0;
+  text-align: center;
+  position: relative;
+">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px; margin-bottom: 14px;">
+    <!-- Redes Sociales -->
+    <a href="https://youtube.com/@elgritcast" target="_blank" style="margin: 0 8px;">
+      <img src="../youtube_logo_vactor.svg" alt="YouTube" style="height:32px; width:auto; vertical-align:middle;">
+    </a>
+    <a href="https://t.me/+8xweB6VJ4ZsyNmM0" target="_blank" style="margin: 0 8px;">
+      <img src="../Telegram Messenger New-01.svg" alt="Telegram" style="height:32px; width:auto; vertical-align:middle;">
+    </a>
+    <a href="https://www.instagram.com/elgritcast/" target="_blank" style="margin: 0 8px;">
+      <img src="../fd8030a8e325fbf76bcad74cb99a1f99.svg" alt="Instagram" style="height:32px; width:auto; vertical-align:middle;">
+    </a>
+    <a href="https://bsky.app/profile/elgritcast.bsky.social" target="_blank" style="margin: 0 8px;">
+      <img src="../bluesky_media_kit_logo_transparent_1_2-removebg-preview.png" alt="Bluesky" style="height:32px; width:auto; vertical-align:middle;">
+    </a>
+    <a href="https://substack.com/@elgritcast?utm_source=user-menu" target="_blank" style="margin: 0 8px;">
+      <img src="../substack.png" alt="Substack" style="height:32px; width:auto; vertical-align:middle;">
+    </a>
+    <a href="https://y.at/🎧🎤🎥💪" target="_blank" style="margin:0 8px; font-weight:bold; font-size:1.1em; color:#373737; text-decoration:underline;">
+    y.at
+    </a>
+
+  </div>
+  <div style="font-size: 1.01rem; margin-bottom: 8px;">
+    &copy; 2025 El Grit Cast. Todos los derechos reservados. | <a href="mailto:info@cachicamo.studio" style="color:#373737;text-decoration:underline;">Contacto</a>
+  </div>
+  <div style="font-size:.92rem;">
+    Desarrollado por <a href="https://www.cachicamo.studio/" target="_blank" style="color:#373737;font-weight:bold;text-decoration:underline;">CACHICAMO STUDIOS LLC</a>
+  </div>
+</footer>
+
 </html>
