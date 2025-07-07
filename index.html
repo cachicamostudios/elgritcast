@@ -76,10 +76,17 @@
       color: var(--color-dark);
       box-shadow: 8px 8px 0 var(--color-dark);
     }
+    /* MENÚ DESKTOP */
     nav {
       display: flex;
       gap: 1.2rem;
       align-items: center;
+      position: static;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      min-width: unset;
     }
     nav a {
       text-decoration: none;
@@ -97,7 +104,6 @@
       border-bottom: 2px solid var(--color-dark);
       outline: none;
     }
-
     /* Menu hamburguesa móvil */
     .menu-toggle {
       display: none;
@@ -106,6 +112,7 @@
       width: 28px;
       height: 22px;
       justify-content: space-between;
+      margin-left: 18px;
     }
     .menu-toggle div {
       height: 4px;
@@ -113,24 +120,30 @@
       border-radius: 2px;
       transition: all 0.3s ease;
     }
+    /* Estilos para menú hamburguesa en móvil */
     nav.mobile-hidden {
-      display: none;
+      display: none !important;
+    }
+    nav.mobile-visible {
+      display: flex !important;
       flex-direction: column;
       position: absolute;
-      top: 72px;
+      top: 80px;
       right: 32px;
       background: var(--color-bg);
       border: 3px solid var(--color-dark);
       border-radius: 10px;
       box-shadow: 8px 8px 0 var(--color-shadow);
       padding: 16px;
-      min-width: 160px;
+      min-width: 170px;
       z-index: 1100;
+      gap: 1rem;
+      animation: dropMenu .23s cubic-bezier(.5,1.4,.6,1.1);
     }
-    nav.mobile-visible {
-      display: flex;
+    @keyframes dropMenu {
+      from { opacity: 0; transform: translateY(-30px);}
+      to { opacity: 1; transform: translateY(0);}
     }
-
     /* -------- HERO -------- */
     .hero {
       display: flex;
@@ -230,7 +243,6 @@
       filter: brightness(1.13);
       transform: translateY(-3px) scale(1.05);
     }
-
     /* -------- BLOQUES HORIZONTALES -------- */
     .blocks-horizontal {
       display: flex;
@@ -440,7 +452,6 @@
       background: var(--color-main);
       color: var(--color-bg);
     }
-
     /* RESPONSIVE */
     @media (max-width: 1100px) {
       .hero {
@@ -470,39 +481,52 @@
       }
     }
     @media (max-width: 800px) {
-      .hero {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 18px;
-      }
-      .hero-doodle, .hero-content {
-        align-items: center;
-        width: 100%;
-      }
-      .hero-doodle {
-        max-width: 110px;
-        width: 54vw;
-      }
-      .frase-hero {
-        font-size: 1.2rem;
-        text-align: center;
-      }
-      .frase-hero-bloque {
-        padding: 10px 4vw 10px 4vw;
-      }
       nav {
-        position: relative;
+        display: none !important;
       }
-      nav a {
-        font-size: 1rem;
-      }
-      /* Hide nav links by default on mobile */
-      nav.mobile-hidden {
-        display: none;
-      }
-      /* Show hamburger menu */
       .menu-toggle {
-        display: flex;
+        display: flex !important;
+      }
+    }
+    @media (min-width: 801px) {
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        min-width: unset;
+        gap: 1.2rem;
+      }
+      .menu-toggle {
+        display: none !important;
+      }
+    }
+    /* BOTÓN 100% EN MÓVIL Y BLOQUES FLUIDOS */
+    @media (max-width: 600px) {
+      .blocks-horizontal {
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 0 18px 0;
+      }
+      .section-block {
+        max-width: 99vw;
+        min-width: 0;
+        width: 98vw;
+        box-sizing: border-box;
+        padding: 14px 3vw;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .section-block .btn {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        font-size: 1.07rem;
+        padding: 14px 6px;
+        white-space: normal;
       }
     }
   </style>
@@ -553,9 +577,9 @@
   <!-- BLOQUES HORIZONTALES -->
   <div class="blocks-horizontal" role="region" aria-label="Secciones principales">
     <section class="section-block" id="nft">
-      <h2>NFT Colección</h2>
+      <h2>NFT Colection</h2>
       <img src="https://via.placeholder.com/110x110?text=NFT+Hero" alt="NFT Hero" style="border-radius:14px; margin-bottom:10px;">
-      <p>Descubre a los héroes de GRIT en nuestra colección NFT. ¡Próximamente Julio César!</p>
+      <p>Descubre a los héroes de GRIT en nuestra colección NFT. </p>
     </section>
 
     <section class="section-block newsletter-form" aria-label="Suscripción al newsletter">
@@ -639,18 +663,51 @@
     // Toggle menú hamburguesa móvil
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('nav');
-
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+    function closeMobileMenu() {
+      navMenu.classList.remove('mobile-visible');
+      navMenu.classList.add('mobile-hidden');
+      menuToggle.setAttribute('aria-expanded', false);
+    }
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', !expanded);
       navMenu.classList.toggle('mobile-visible');
       navMenu.classList.toggle('mobile-hidden');
     });
-    // Para cerrar menú si clic fuera en móvil
+    // Cerrar menú si clic fuera en móvil
     document.addEventListener('click', e => {
-      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('mobile-visible')) {
-        navMenu.classList.remove('mobile-visible');
+      if (window.innerWidth <= 800) {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('mobile-visible')) {
+          closeMobileMenu();
+        }
+      }
+    });
+    // Cierra el menú si se cambia a escritorio
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 800) {
+        navMenu.classList.remove('mobile-hidden', 'mobile-visible');
+        menuToggle.style.display = 'none';
+        navMenu.style.display = 'flex';
+      } else {
         navMenu.classList.add('mobile-hidden');
+        navMenu.classList.remove('mobile-visible');
+        menuToggle.style.display = 'flex';
+        navMenu.style.display = '';
+        menuToggle.setAttribute('aria-expanded', false);
+      }
+    });
+    // Asegura estado correcto al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth > 800) {
+        navMenu.classList.remove('mobile-hidden', 'mobile-visible');
+        menuToggle.style.display = 'none';
+        navMenu.style.display = 'flex';
+      } else {
+        navMenu.classList.add('mobile-hidden');
+        navMenu.classList.remove('mobile-visible');
+        menuToggle.style.display = 'flex';
+        navMenu.style.display = '';
         menuToggle.setAttribute('aria-expanded', false);
       }
     });
