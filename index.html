@@ -41,6 +41,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: nowrap;
     }
     .logo-img {
       height: 70px;
@@ -70,6 +71,8 @@
       transition: background .2s, color .2s, box-shadow .2s;
       text-transform: uppercase;
       letter-spacing: 2px;
+      z-index: 100;
+      position: relative;
     }
     .btn-yat:hover {
       background: var(--color-main);
@@ -87,6 +90,7 @@
       box-shadow: none;
       padding: 0;
       min-width: unset;
+      z-index: 10;
     }
     nav a {
       text-decoration: none;
@@ -113,6 +117,12 @@
       height: 22px;
       justify-content: space-between;
       margin-left: 18px;
+      z-index: 1201;
+      position: absolute;
+      right: 14px;
+      top: 20px;
+      background: transparent;
+      border: none;
     }
     .menu-toggle div {
       height: 4px;
@@ -129,14 +139,14 @@
       flex-direction: column;
       position: absolute;
       top: 80px;
-      right: 32px;
+      right: 14px;
       background: var(--color-bg);
       border: 3px solid var(--color-dark);
       border-radius: 10px;
       box-shadow: 8px 8px 0 var(--color-shadow);
       padding: 16px;
       min-width: 170px;
-      z-index: 1100;
+      z-index: 1200 !important; /* alto para estar sobre header */
       gap: 1rem;
       animation: dropMenu .23s cubic-bezier(.5,1.4,.6,1.1);
     }
@@ -452,43 +462,57 @@
       background: var(--color-main);
       color: var(--color-bg);
     }
-    /* RESPONSIVE */
-    @media (max-width: 1100px) {
-      .hero {
-        flex-direction: column;
-        align-items: center;
-        gap: 28px;
-        padding: 34px 3vw 18px 3vw;
-      }
-      .hero-doodle {
-        max-width: 210px;
-        width: 37vw;
-        border-radius: 14px;
-      }
-      .frase-hero-bloque {
-        padding: 18px 8vw 18px 8vw;
-        max-width: 99vw;
-      }
-      .frase-hero {
-        font-size: 1.8rem;
-      }
-      .hero-buttons {
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      nav {
-        gap: 1rem;
-      }
-    }
+    /* RESPONSIVE AJUSTE DE HEADER Y MENU HAMBURGUESA */
     @media (max-width: 800px) {
-      nav {
-        display: none !important;
+      header {
+        flex-wrap: wrap;
+        padding: 14px 8px 8px 8px;
+      }
+      .logo-img {
+        height: 45px;
+        margin-right: 6px;
+      }
+      .header-center {
+        flex: 1 1 60%;
+        min-width: 90px;
+        justify-content: flex-start;
+      }
+      .btn-yat {
+        font-size: 1rem;
+        padding: 7px 14px;
+        margin: 0 0 0 10px;
+        border-radius: 10px;
+        box-shadow: 4px 4px 0 var(--color-main);
+        min-width: 0;
+        max-width: 110px;
+        white-space: nowrap;
       }
       .menu-toggle {
         display: flex !important;
+        position: absolute;
+        right: 10px;
+        top: 18px;
+        z-index: 1201;
+      }
+      nav {
+        display: none !important;
       }
     }
+    @media (max-width: 420px) {
+      .btn-yat {
+        font-size: .90rem;
+        padding: 5px 10px;
+        margin-left: 3px;
+        max-width: 85px;
+      }
+    }
+    @media (max-width: 370px) {
+      .btn-yat { display: none !important; }
+    }
     @media (min-width: 801px) {
+      .menu-toggle {
+        display: none !important;
+      }
       nav {
         display: flex !important;
         flex-direction: row;
@@ -499,9 +523,6 @@
         padding: 0;
         min-width: unset;
         gap: 1.2rem;
-      }
-      .menu-toggle {
-        display: none !important;
       }
     }
     /* BOTÓN 100% EN MÓVIL Y BLOQUES FLUIDOS */
@@ -520,13 +541,13 @@
         margin-left: auto;
         margin-right: auto;
       }
-      .section-block .btn {
+      .section-block h2 {
+        font-size: 1.1rem;
+      }
+      .btn.secondary, .btn.primary {
         width: 100%;
-        min-width: 0;
         box-sizing: border-box;
-        font-size: 1.07rem;
-        padding: 14px 6px;
-        white-space: normal;
+        font-size: 1.09rem;
       }
     }
   </style>
@@ -577,16 +598,13 @@
   <!-- BLOQUES HORIZONTALES -->
   <div class="blocks-horizontal" role="region" aria-label="Secciones principales">
     <section class="section-block" id="nft">
-      <h2>NFT Colection</h2>
+      <h2>NFT Colección</h2>
       <img src="https://via.placeholder.com/110x110?text=NFT+Hero" alt="NFT Hero" style="border-radius:14px; margin-bottom:10px;">
-      <p>Descubre a los héroes de GRIT en nuestra colección NFT. </p>
     </section>
-
     <section class="section-block newsletter-form" aria-label="Suscripción al newsletter">
       <h2>Suscríbete a nuestro Newsletter</h2>
       <iframe src="https://elgritcast.substack.com/embed" width="100%" height="320" style="border:1.5px solid var(--color-dark); background:#fff; border-radius:12px;" frameborder="0" scrolling="no" title="Formulario de suscripción a newsletter"></iframe>
     </section>
-
     <section class="section-block" id="episodios">
       <h2>Último episodio</h2>
       <ul class="episodes-list">
