@@ -566,7 +566,7 @@
         font-size: 1.09rem;
       }
     }
-    /* MODAL ESTILO */
+    /* MODAL ESTILO MEJORADO PARA MOVIL */
     #grit-modal {
       display: none;
       position: fixed;
@@ -578,12 +578,16 @@
       background: rgba(55,55,55,0.97);
       align-items: center;
       justify-content: center;
+      /* Permite el scroll en el contenido si es necesario */
+      overflow-y: auto;
     }
     #grit-modal-box {
       background: #373737;
       color: #d3d4d4;
       max-width: 480px;
       width: 94vw;
+      max-height: 92vh;
+      overflow-y: auto;
       padding: 2.2rem 1.8rem 1.8rem 1.8rem;
       border-radius: 24px;
       box-shadow: 0 10px 48px #0007;
@@ -591,6 +595,8 @@
       border: 4px solid #b8fc26;
       font-family: 'n27regular',Arial,sans-serif;
       animation: popUp .18s cubic-bezier(.52,1.5,.6,1.1);
+      box-sizing: border-box;
+      margin: 4vh 0 4vh 0;
     }
     #grit-modal-close {
       position: absolute;
@@ -606,6 +612,13 @@
     }
     #grit-modal-close:hover {
       color: #b8fc26;
+    }
+    @media (max-width: 500px) {
+      #grit-modal-box {
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+        border-radius: 16px;
+        margin: 2vh 0 2vh 0;
+      }
     }
     @keyframes popUp {
       from { opacity: 0; transform: scale(.85);}
@@ -670,7 +683,7 @@
           y aun así, no se rindieron.
         </p>
         <p>
-          Creemos que el Grit esa mezcla de pasión y perseverancia se entrena, se construye y se contagia.<br>
+          Creemos que el Grit —esa mezcla de pasión y perseverancia— se entrena, se construye y se contagia.<br>
           Por eso, cada episodio es una chispa para quien hoy siente que ya no puede más.<br>
           Un recordatorio de que avanzar, aunque sea lento, siempre vale la pena.
         </p>
