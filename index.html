@@ -203,6 +203,14 @@
       justify-content: center;
       border: 4px solid var(--color-dark);
       width: 100%;
+      cursor: pointer;
+      transition: box-shadow 0.15s, filter 0.15s;
+    }
+    .frase-hero-bloque:active,
+    .frase-hero-bloque:focus-within {
+      box-shadow: 2px 2px 0 var(--color-dark);
+      filter: brightness(0.98);
+      outline: 2px solid #373737;
     }
     .frase-hero {
       font-family: 'n27regular', Arial, sans-serif;
@@ -217,6 +225,7 @@
       text-align-last: center;
       width: 100%;
       user-select: none;
+      pointer-events: none;
     }
     .hero-buttons {
       display: flex;
@@ -557,6 +566,51 @@
         font-size: 1.09rem;
       }
     }
+    /* MODAL ESTILO */
+    #grit-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(55,55,55,0.88);
+      align-items: center;
+      justify-content: center;
+    }
+    #grit-modal-box {
+      background: #fff;
+      color: #373737;
+      max-width: 480px;
+      width: 94vw;
+      padding: 2.2rem 1.8rem 1.8rem 1.8rem;
+      border-radius: 24px;
+      box-shadow: 0 10px 48px #0007;
+      position: relative;
+      border: 4px solid #b8fc26;
+      font-family: 'n27regular',Arial,sans-serif;
+      animation: popUp .18s cubic-bezier(.52,1.5,.6,1.1);
+    }
+    #grit-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #373737;
+      cursor: pointer;
+      z-index: 2;
+      transition: color .2s;
+    }
+    #grit-modal-close:hover {
+      color: #b8fc26;
+    }
+    @keyframes popUp {
+      from { opacity: 0; transform: scale(.85);}
+      to { opacity: 1; transform: scale(1);}
+    }
   </style>
 </head>
 <body>
@@ -586,7 +640,7 @@
       <img class="hero-img" src="podcast_doodle-removebg-preview.png" alt="Podcast Doodle Hero" />
     </div>
     <div class="hero-content">
-      <div class="frase-hero-bloque">
+      <div class="frase-hero-bloque" id="grit-frase-bloque" tabindex="0" aria-label="Haz clic para ver el manifiesto de El Grit Cast">
         <h1 class="frase-hero">
           El Grit Cast donde<br>las historias no se rinden.
         </h1>
@@ -601,6 +655,42 @@
       </div>
     </div>
   </section>
+
+  <!-- MODAL MANIFIESTO EL GRIT CAST -->
+  <div id="grit-modal">
+    <div id="grit-modal-box">
+      <button id="grit-modal-close" aria-label="Cerrar">&times;</button>
+      <h2 style="margin-top:0; font-size:2rem; color:#b8fc26; letter-spacing:.02em;">Manifiesto El Grit Cast</h2>
+      <div style="font-size:1.11rem;line-height:1.48;margin-bottom:0;">
+        <p><strong>El Grit Cast no es un podcast de entrevistas.</strong><br>
+        Es un espacio donde la constancia, la disciplina y la resiliencia tienen voz propia.</p>
+        <p>
+          Aquí no celebramos el éxito fácil ni los logros vacíos.<br>
+          Contamos historias reales de personas que han atravesado momentos oscuros, caídas duras y dudas profundas…<br>
+          y aun así, no se rindieron.
+        </p>
+        <p>
+          Creemos que el Grit —esa mezcla de pasión y perseverancia— se entrena, se construye y se contagia.<br>
+          Por eso, cada episodio es una chispa para quien hoy siente que ya no puede más.<br>
+          Un recordatorio de que avanzar, aunque sea lento, siempre vale la pena.
+        </p>
+        <p>
+          Pero no solo inspiramos: también entregamos herramientas útiles, concretas, que ayudan a fortalecer la mente y el enfoque.<br>
+          Compartimos estrategias reales para resistir la presión, cultivar la disciplina y sostener los objetivos a largo plazo.<br>
+          Porque perseverar no es cuestión de suerte, sino de preparación.
+        </p>
+        <p>
+          Este podcast es para quienes dudan, pero siguen.<br>
+          Para quienes tropiezan, pero se levantan.<br>
+          Para quienes no necesitan perfección, sino impulso.
+        </p>
+        <p style="font-weight:bold; color:#373737; margin-bottom:0.2em;">
+          Bienvenida. Bienvenido. Estás en El Grit Cast.<br>
+          <span style="color:#b8fc26;">Donde las historias no se rinden.</span>
+        </p>
+      </div>
+    </div>
+  </div>
 
   <!-- BLOQUES HORIZONTALES -->
   <div class="blocks-horizontal" role="region" aria-label="Secciones principales">
@@ -735,6 +825,38 @@
         navMenu.style.display = '';
         menuToggle.setAttribute('aria-expanded', false);
       }
+    });
+
+    // Modal Manifiesto
+    const gritFraseBloque = document.getElementById('grit-frase-bloque');
+    const gritModal = document.getElementById('grit-modal');
+    const gritModalBox = document.getElementById('grit-modal-box');
+    const gritModalClose = document.getElementById('grit-modal-close');
+
+    function openGritModal() {
+      gritModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      gritModalClose.focus();
+    }
+    function closeGritModal() {
+      gritModal.style.display = 'none';
+      document.body.style.overflow = '';
+      gritFraseBloque.focus();
+    }
+
+    gritFraseBloque.addEventListener('click', openGritModal);
+    gritFraseBloque.addEventListener('keypress', function(e) {
+      if (e.key === "Enter" || e.key === " ") openGritModal();
+    });
+    gritModalClose.addEventListener('click', closeGritModal);
+
+    // Cierra modal si clic fuera de la caja
+    gritModal.addEventListener('click', function(e) {
+      if (!gritModalBox.contains(e.target)) closeGritModal();
+    });
+    // Cierra modal con Esc
+    document.addEventListener('keydown', function(e) {
+      if (gritModal.style.display === 'flex' && e.key === "Escape") closeGritModal();
     });
   </script>
 </body>
