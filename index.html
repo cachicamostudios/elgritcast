@@ -46,23 +46,29 @@
     .logo-img {
       height: 70px;
       width: auto;
-      margin-right: 14px;
       vertical-align: middle;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      min-width: 340px;
     }
     .header-center {
       flex: 1;
       display: flex;
       justify-content: center;
+      align-items: center;
+      gap: 16px;
     }
     .btn-yat {
       background: var(--color-dark);
       color: var(--color-main);
       font-size: 1.24rem;
       font-weight: bold;
-      padding: 13px 40px;
+      padding: 13px 28px;
       border-radius: 15px;
       border: 2.5px solid var(--color-main);
-      margin: 0 28px;
+      margin: 0;
       box-shadow: 6px 6px 0 var(--color-main);
       text-decoration: none;
       display: flex;
@@ -158,7 +164,7 @@
     .hero {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       gap: 52px;
       padding: 72px 6vw 44px 6vw;
@@ -170,8 +176,8 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      max-width: 390px;
-      width: 27vw;
+      max-width: 260px;
+      width: 18vw;
       height: auto;
       border-radius: 18px;
       box-shadow: 0 12px 0 var(--color-dark);
@@ -197,12 +203,14 @@
       border-radius: 22px;
       box-shadow: 12px 12px 0 var(--color-shadow);
       padding: 34px 38px 26px 38px;
-      margin-bottom: 30px;
+      margin-bottom: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 4px solid var(--color-dark);
       width: 100%;
+      height: 100%;
+      box-sizing: border-box;
       cursor: pointer;
       transition: box-shadow 0.15s, filter 0.15s;
     }
@@ -629,9 +637,14 @@
 <body>
   <!-- HEADER brutalista -->
   <header>
-    <img class="logo-img" src="el_grit_cast_cube_sin_fondo copia.png" alt="Logo El Grit Cast" />
+    <div class="header-left">
+      <img class="logo-img" src="el_grit_cast_cube_sin_fondo copia.png" alt="Logo El Grit Cast" />
+    </div>
     <div class="header-center">
       <a class="btn-yat" href="https://y.at/🎧🎤🎥💪" target="_blank" rel="noopener">🎧🎤🎥💪 y.at</a>
+      <a class="btn-yat" href="https://youtube.com/@elgritcast" target="_blank" rel="noopener">
+        <img src="youtube_logo_vactor.svg" alt="YouTube" style="height:20px; vertical-align:middle;"> YouTube
+      </a>
     </div>
     <!-- Menu Hamburguesa toggle -->
     <div class="menu-toggle" aria-label="Toggle navigation" tabindex="0" role="button" aria-expanded="false">
@@ -658,22 +671,31 @@
           El Grit Cast donde<br>las historias no se rinden.
         </h1>
       </div>
-      <div class="hero-buttons">
-        <a class="btn primary" href="https://youtube.com/@elgritcast" target="_blank" rel="noopener">
-          <img src="youtube_logo_vactor.svg" alt="YouTube" style="height:22px;vertical-align:middle;margin-right:8px;"> YouTube
-        </a>
-        <a class="btn secondary" href="episodios/index.html" rel="noopener">
-          Episodios
-        </a>
-      </div>
     </div>
   </section>
 
   <!-- REPRODUCTOR SPREAKER -->
-  <section style="padding: 0 6vw 40px 6vw; background: var(--color-bg);">
-    <a class="spreaker-player" href="https://www.spreaker.com/podcast/el-grit-cast--6797930" data-resource="show_id=6797930" data-width="100%" data-height="200px" data-theme="light" data-playlist="show" data-playlist-continuous="true" data-chapters-image="true" data-episode-image-position="right" data-hide-logo="false" data-hide-likes="false" data-hide-comments="false" data-hide-sharing="false" data-hide-download="true" data-title="El Grit Cast">Escucha "El Grit Cast" en Spreaker.</a>
-    <script async src="https://widget.spreaker.com/widgets.js"></script>
+  <section style="padding: 0 0 40px 0; background: var(--color-bg);">
+    <div id="spreaker-wrapper" style="margin: 0 auto; padding: 0 6vw;">
+      <a class="spreaker-player" href="https://www.spreaker.com/podcast/el-grit-cast--6797930" data-resource="show_id=6797930" data-width="100%" data-height="400px" data-theme="light" data-playlist="show" data-playlist-continuous="true" data-chapters-image="true" data-episode-image-position="right" data-hide-logo="false" data-hide-likes="false" data-hide-comments="false" data-hide-sharing="false" data-hide-download="true" data-title="El Grit Cast">Escucha "El Grit Cast" en Spreaker.</a>
+      <script async src="https://widget.spreaker.com/widgets.js"></script>
+    </div>
   </section>
+  <script>
+    // Alinea el reproductor Spreaker con el borde izquierdo del hero-doodle
+    function alignSpreaker() {
+      var doodle = document.querySelector('.hero-doodle');
+      var wrapper = document.getElementById('spreaker-wrapper');
+      if (!doodle || !wrapper) return;
+      var rect = doodle.getBoundingClientRect();
+      var left = rect.left + window.scrollX;
+      var right = window.innerWidth - (rect.right + window.scrollX + (window.innerWidth - document.querySelector('.hero-content').getBoundingClientRect().right - window.scrollX));
+      wrapper.style.paddingLeft = left + 'px';
+      wrapper.style.paddingRight = Math.max(left, 0) + 'px';
+    }
+    window.addEventListener('load', alignSpreaker);
+    window.addEventListener('resize', alignSpreaker);
+  </script>
 
   <!-- MODAL MANIFIESTO EL GRIT CAST -->
   <div id="grit-modal">
@@ -711,45 +733,24 @@
     </div>
   </div>
 
-  <!-- BLOQUES HORIZONTALES -->
-  <div class="blocks-horizontal" role="region" aria-label="Secciones principales">
-<section class="section-block newsletter-form" aria-label="Suscripción al newsletter">
+  <!-- BLOQUES HORIZONTALES: NEWSLETTER + CONTACTO -->
+  <div class="blocks-horizontal" id="contacto" role="region" aria-label="Secciones principales">
+    <section class="section-block newsletter-form" aria-label="Suscripción al newsletter">
       <h2>Suscríbete a nuestro Newsletter</h2>
       <iframe src="https://elgritcast.substack.com/embed" width="100%" height="320" style="border:1.5px solid var(--color-dark); background:#fff; border-radius:12px;" frameborder="0" scrolling="no" title="Formulario de suscripción a newsletter"></iframe>
     </section>
-    <section class="section-block" id="episodios">
-      <h2>Último episodio</h2>
-      <ul class="episodes-list">
-        <li>
-          <span class="episode-audio" aria-hidden="true">
-            <img src="youtube_logo_vactor.svg" alt="" width="30" />
-          </span>
-          <div class="episode-info">
-            <strong>Episodio 015: Un Mensaje Importante a las Mujeres</strong><br>
-            <span>Invitado: Lisbeth Dos Ramos</span>
-          </div>
-          <audio controls preload="none" style="width:100%;margin:10px 0 8px 0;">
-            <source src="https://pub-588137ed925246f1a847e7b1a862df78.r2.dev/elgritcast-ep-015-lisbeth-dos-ramos-ID3.MP3" type="audio/mpeg">
-            Tu navegador no soporta el elemento de audio.
-          </audio>
-          <a class="btn secondary" style="margin-top:10px;" href="episodios/index.html" rel="noopener">Escuchar todos los episodios</a>
-        </li>
-      </ul>
+    <section class="section-block" aria-label="Formulario de contacto">
+      <form action="https://formspree.io/f/xkgbnjpr" method="POST" style="display:flex;flex-direction:column;gap:11px;width:100%;">
+        <h2 style="color:var(--color-dark);margin:0 0 8px 0;">Contacto</h2>
+        <label for="email" style="font-weight:700;">Email</label>
+        <input type="email" name="email" id="email" required style="border:2px solid var(--color-dark);border-radius:7px;padding:9px;font-size:1rem;background:#fff;font-family:inherit;box-sizing:border-box;" />
+        <label for="message" style="font-weight:700;">Mensaje</label>
+        <textarea name="message" id="message" required rows="4" style="border:2px solid var(--color-dark);border-radius:7px;padding:9px;font-size:1rem;background:#fff;font-family:inherit;box-sizing:border-box;resize:vertical;"></textarea>
+        <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html" />
+        <button type="submit" style="background:var(--color-dark);color:var(--color-main);font-weight:bold;border:none;border-radius:7px;font-size:1rem;padding:11px 0;cursor:pointer;box-shadow:4px 4px 0 var(--color-dark);letter-spacing:1px;text-transform:uppercase;font-family:inherit;">Enviar</button>
+      </form>
     </section>
   </div>
-
-  <!-- FORMULARIO CONTACTO -->
-  <section id="contacto" class="form-container" role="region" aria-label="Formulario de contacto">
-    <form class="form-box" action="https://formspree.io/f/xkgbnjpr" method="POST">
-      <h2 style="color:var(--color-dark);">Contacto</h2>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required />
-      <label for="message">Mensaje</label>
-      <textarea name="message" id="message" required rows="4"></textarea>
-      <input type="hidden" name="_redirect" value="https://elgritcast.com/gracias.html" />
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
 
   <!-- REDES SOCIALES -->
   <div class="social-links" role="contentinfo" aria-label="Redes sociales">
