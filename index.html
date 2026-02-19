@@ -483,54 +483,68 @@
     @media (max-width: 800px) {
       header {
         flex-wrap: wrap;
-        padding: 14px 8px 8px 8px;
+        padding: 10px 12px 8px 12px;
+        gap: 8px;
+      }
+      .header-left {
+        min-width: unset;
+        flex: 0 0 auto;
       }
       .logo-img {
-        height: 45px;
-        margin-right: 6px;
+        height: 42px;
       }
       .header-center {
-        flex: 1 1 60%;
-        min-width: 90px;
-        justify-content: flex-start;
+        order: 3;
+        flex: 1 1 100%;
+        justify-content: center;
+        gap: 10px;
+        padding-bottom: 6px;
       }
       .btn-yat {
-        font-size: 1rem;
-        padding: 7px 14px;
-        margin: 0 0 0 10px;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        margin: 0;
         border-radius: 10px;
         box-shadow: 4px 4px 0 var(--color-main);
-        min-width: 0;
-        max-width: 110px;
         white-space: nowrap;
+        flex: 1;
+        justify-content: center;
+        max-width: 48%;
       }
       .menu-toggle {
         display: flex !important;
-        position: absolute;
-        right: 10px;
-        top: 18px;
+        order: 2;
+        position: static;
         z-index: 1201;
       }
       nav {
         display: none !important;
       }
-    }
-    @media (max-width: 420px) {
-      .btn-yat {
-        font-size: .90rem;
-        padding: 5px 10px;
-        margin-left: 3px;
-        max-width: 85px;
+      /* Hero en móvil */
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 16px 20px 16px;
+        gap: 16px;
       }
-    }
-    @media (max-width: 370px) {
-      .btn-yat { 
-        font-size: .72rem;
-        padding: 3px 5px;
-        max-width: 60px;
-        min-width: 0;
-        border-radius: 7px;
-        box-shadow: 2px 2px 0 var(--color-main);
+      .hero-doodle {
+        width: 60vw;
+        max-width: 220px;
+      }
+      .hero-content {
+        width: 100%;
+      }
+      .frase-hero-bloque {
+        height: auto !important;
+        padding: 20px 16px;
+        margin-bottom: 0;
+      }
+      .frase-hero {
+        font-size: 1.5rem !important;
+      }
+      /* Spreaker en móvil */
+      #spreaker-wrapper {
+        padding: 0 12px !important;
       }
     }
     @media (min-width: 801px) {
