@@ -1,0 +1,35 @@
+name: Generar Blog desde Markdown
+
+on:
+  push:
+    paths:
+      - 'blog/posts/**.md'
+      - 'generate_blog.py'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Ejecutar script para generar el blog
+        run: python generate_blog.py
+
+      - name: Commit y push de cambios
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add blog/
+          git commit -m "Actualizar blog automáticamente desde Markdown" || echo "Sin cambios para commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
