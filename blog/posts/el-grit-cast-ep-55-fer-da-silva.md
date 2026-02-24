@@ -1,16 +1,8 @@
 ---
-
-title: El Corazón de Fer (Resumen)
-
-date: "2026-01-25"
-
-description: Fer Da Silva no necesita palabras para hablar de lo que ha vivido. Lo dice todo con un Corazón.
-
-tags: Grit Resieliencia Perseverancia Corazón
-
---
-
-**
+titulo: El Corazón de Fer (Resumen)
+fecha: 2026-01-25
+descripcion: Fer Da Silva no necesita palabras para hablar de lo que ha vivido. Lo dice todo con un Corazón.
+---
 
 Este episodio de El Grit Cast presenta una conversación profunda con el artista plástico Fer Da Silva, quien comparte cómo el arte y una filosofía de vida basada en el amor y la gratitud lo rescataron de sus momentos más oscuros.
 
@@ -58,5 +50,3 @@ Para quienes están pasando por un momento crítico, Fer sugiere:
     
 
 Si te interesa profundizar en estos conceptos, puedo crear flashcards con sus frases clave o un cuestionario sobre las lecciones de resiliencia mencionadas en la entrevista. ¿Te gustaría que lo haga?
-
-**
