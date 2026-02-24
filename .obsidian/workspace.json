@@ -11,10 +11,14 @@
             "id": "603a62047d1bed3c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/posts/el-grit-cast-ep-55-fer-da-silva.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "el-grit-cast-ep-55-fer-da-silva"
             }
           }
         ]
@@ -179,6 +183,7 @@
   },
   "active": "ea1b845020058179",
   "lastOpenFiles": [
+    "blog/posts/el-grit-cast-ep-55-fer-da-silva.md",
     "blog/posts/ejemplo-primer-post.md",
     "blog/posts",
     "blog/index.html",
