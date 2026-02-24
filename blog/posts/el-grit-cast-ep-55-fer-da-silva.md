@@ -6,7 +6,7 @@ date: "2026-01-25"
 
 description: Fer Da Silva no necesita palabras para hablar de lo que ha vivido. Lo dice todo con un Corazón.
 
-tags: Grit Resieliencia Perseverancia
+tags: Grit Resieliencia Perseverancia Corazón
 
 --
 
