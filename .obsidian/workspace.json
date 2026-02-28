@@ -48,9 +48,23 @@
               "icon": "lucide-file",
               "title": "el-grit-cast-ep-53-whereisnoa"
             }
+          },
+          {
+            "id": "3b5d67f3b8c78169",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/posts/el-grit-cast-ep-52-victoria-nicole.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "el-grit-cast-ep-52-victoria-nicole"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -210,11 +224,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e8a47410a639cec7",
+  "active": "ea1b845020058179",
   "lastOpenFiles": [
+    "blog/posts/el-grit-cast-ep-53-whereisnoa.md",
+    "blog/posts/el-grit-cast-ep-52-victoria-nicole.md",
     "blog/posts/el-grit-cast-ep-54-alex-pita.md",
     "blog/posts/el-grit-cast-ep-55-fer-da-silva.md",
-    "blog/posts/el-grit-cast-ep-53-whereisnoa.md",
     "blog/el-grit-cast-ep-53-whereisnoa.html",
     "blog/el-grit-cast-ep-54-alex-pita.html",
     "blog/el-grit-cast-ep-55-fer-da-silva.html",
