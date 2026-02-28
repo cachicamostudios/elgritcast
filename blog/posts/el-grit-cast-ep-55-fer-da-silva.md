@@ -47,6 +47,3 @@ Para quienes están pasando por un momento crítico, Fer sugiere:
 - Accionar en intervalos cortos: No pensar en semanas o meses, sino preguntarse: "¿Qué puedo hacer en los próximos 5 minutos?" (levantarse, tomar agua) y cumplirlo 22.
     
 - Agradecer lo que ya se tiene: Recordar que muchas de las cosas que hoy poseemos fueron alguna vez un sueño 23, 24.
-    
-
-Si te interesa profundizar en estos conceptos, puedo crear flashcards con sus frases clave o un cuestionario sobre las lecciones de resiliencia mencionadas en la entrevista. ¿Te gustaría que lo haga?
