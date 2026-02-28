@@ -127,7 +127,9 @@ def md_to_html(text):
     in_list = False
     for line in lines:
         # Encabezados
-        if line.startswith("### "):
+        if line.startswith("#### "):
+            html.append(f"<h4>{line[5:]}</h4>")
+        elif line.startswith("### "):
             html.append(f"<h3>{line[4:]}</h3>")
         elif line.startswith("## "):
             html.append(f"<h2>{line[3:]}</h2>")
@@ -216,6 +218,7 @@ def generate_post_html(md_path):
       margin-top: 32px;
     }}
     .post-body h3 {{ font-size: 1.15rem; margin-top: 24px; }}
+    .post-body h4 {{ font-size: 1.05rem; margin-top: 20px; font-weight: bold; }}
     .back-link {{
       display: inline-block;
       margin: 30px 0 0 0;
