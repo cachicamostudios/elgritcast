@@ -3,7 +3,7 @@ titulo: 'Victoria Nicole: El "Grit" detrás de la voz que conquistó Eurovisión
 fecha: 2025-12-15
 descripcion: "Victoria Nicole es una de las voces jóvenes más sorprendentes de su generación.Nacida en Venezuela y criada en Portugal, ha construido una carrera que ya inspira a miles: ganó La Voz Kids Portugal, representó al país en Eurovision Junior 2024 quedando en segundo lugar, y ahora vuelve con fuerza con su nuevo tema “Giving It All”."
 ---
-A sus 15 años, Victoria Nicole no solo ha alcanzado el segundo lugar histórico para Portugal en Eurovisión Junior 2024, sino que se ha convertido en un símbolo de determinación, pasión y disciplina**. En esta entrevista, Victoria y su madre, Liliana, nos revelan que el éxito no fue casualidad, sino el resultado de años de esfuerzo constante.
+A sus 15 años, Victoria Nicole no solo ha alcanzado el segundo lugar histórico para Portugal en Eurovisión Junior 2024, sino que se ha convertido en un símbolo de determinación, pasión y disciplina. En esta entrevista, Victoria y su madre, Liliana, nos revelan que el éxito no fue casualidad, sino el resultado de años de esfuerzo constante.
 
 Aquí te presentamos los puntos más destacados de su historia:
 
