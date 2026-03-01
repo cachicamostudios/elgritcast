@@ -62,9 +62,21 @@
               "icon": "lucide-file",
               "title": "el-grit-cast-ep-52-victoria-nicole"
             }
+          },
+          {
+            "id": "f28b2c9b7abb8dbf",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Registro de cambios 1.12.4"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -87,7 +99,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "Explorador de archivos"
             }
           },
           {
@@ -214,17 +226,17 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false,
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b5d67f3b8c78169",
+  "active": "f28b2c9b7abb8dbf",
   "lastOpenFiles": [
     "blog/el-grit-cast-ep-52-victoria-nicole.html",
     "blog/posts/el-grit-cast-ep-53-whereisnoa.md",
