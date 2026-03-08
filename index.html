@@ -114,6 +114,31 @@
       border-bottom: 2px solid var(--color-dark);
       outline: none;
     }
+    .btn-app {
+      background: var(--color-main);
+      color: var(--color-dark);
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 7px 16px;
+      border-radius: 10px;
+      border: 2px solid var(--color-dark);
+      box-shadow: 4px 4px 0 var(--color-dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background .2s, color .2s, box-shadow .2s;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .btn-app:hover,
+    .btn-app:focus {
+      background: var(--color-dark);
+      color: var(--color-main);
+      box-shadow: 6px 6px 0 var(--color-main);
+      border-bottom: 2px solid var(--color-dark);
+      outline: none;
+    }
     /* Menu hamburguesa móvil */
     .menu-toggle {
       display: none;
@@ -671,6 +696,7 @@
       <a href="episodios/index.html">Episodios</a>
       <a href="blog/index.html">Blog</a>
       <a href="#contacto">Contacto</a>
+      <a href="https://app.elgritcast.com" target="_blank" rel="noopener" class="btn-app">⚡ Grit App</a>
     </nav>
   </header>
 
