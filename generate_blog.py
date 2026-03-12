@@ -167,6 +167,8 @@ def generate_post_html(md_path):
     slug = os.path.splitext(os.path.basename(md_path))[0]
     out_path = os.path.join(BLOG_DIR, f"{slug}.html")
 
+    canonical_url = f"https://elgritcast.com/blog/{slug}.html"
+
     html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -174,6 +176,20 @@ def generate_post_html(md_path):
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{meta['titulo']} - El Grit Cast Blog</title>
   <meta name="description" content="{meta['descripcion']}" />
+  <link rel="canonical" href="{canonical_url}" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="{meta['titulo']} - El Grit Cast" />
+  <meta property="og:description" content="{meta['descripcion']}" />
+  <meta property="og:url" content="{canonical_url}" />
+  <meta property="og:site_name" content="El Grit Cast" />
+  <meta property="og:image" content="https://elgritcast.com/el_grit_cast_cube_sin_fondo copia.png" />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="{meta['fecha']}" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{meta['titulo']} - El Grit Cast" />
+  <meta name="twitter:description" content="{meta['descripcion']}" />
+  <meta name="twitter:image" content="https://elgritcast.com/el_grit_cast_cube_sin_fondo copia.png" />
   <link rel="icon" href="../el_grit_cast_cube_sin_fondo copia.png" type="image/png">
 {SHARED_STYLES}
   <style>
@@ -283,6 +299,19 @@ def generate_blog_index(posts):
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog - El Grit Cast</title>
   <meta name="description" content="Artículos, reflexiones y herramientas del podcast El Grit Cast." />
+  <link rel="canonical" href="https://elgritcast.com/blog/" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog - El Grit Cast" />
+  <meta property="og:description" content="Artículos, reflexiones y herramientas del podcast El Grit Cast." />
+  <meta property="og:url" content="https://elgritcast.com/blog/" />
+  <meta property="og:site_name" content="El Grit Cast" />
+  <meta property="og:image" content="https://elgritcast.com/el_grit_cast_cube_sin_fondo copia.png" />
+  <meta property="og:type" content="website" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog - El Grit Cast" />
+  <meta name="twitter:description" content="Artículos, reflexiones y herramientas del podcast El Grit Cast." />
+  <meta name="twitter:image" content="https://elgritcast.com/el_grit_cast_cube_sin_fondo copia.png" />
   <link rel="icon" href="../el_grit_cast_cube_sin_fondo copia.png" type="image/png">
 {SHARED_STYLES}
   <style>
@@ -320,6 +349,52 @@ def generate_blog_index(posts):
         f.write(html)
     print("  ✓ Generado: blog/index.html")
 
+# ── Generar sitemap.xml ───────────────────────────────────────────────────────
+def generate_sitemap(posts):
+    BASE_URL = "https://elgritcast.com"
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    static_urls = [
+        f"""  <url>
+    <loc>{BASE_URL}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{BASE_URL}/episodios/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{BASE_URL}/blog/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>""",
+    ]
+
+    post_urls = []
+    for p in posts:
+        lastmod = p["fecha"] if p["fecha"] else today
+        post_urls.append(f"""  <url>
+    <loc>{BASE_URL}/blog/{p['slug']}.html</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    all_urls = "\n".join(static_urls + post_urls)
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{all_urls}
+</urlset>
+"""
+    out_path = os.path.join(BASE_DIR, "sitemap.xml")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(sitemap)
+    print("  ✓ Generado: sitemap.xml")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     md_files = glob.glob(os.path.join(POSTS_DIR, "*.md"))
@@ -334,4 +409,5 @@ if __name__ == "__main__":
         posts.append(post_meta)
 
     generate_blog_index(posts)
+    generate_sitemap(posts)
     print("✅ Blog generado correctamente.")
