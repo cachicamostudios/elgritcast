@@ -74,9 +74,21 @@
               "icon": "lucide-book-up",
               "title": "Registro de cambios 1.12.4"
             }
+          },
+          {
+            "id": "76fb1bd3d4dbc72f",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Registro de cambios 1.12.7"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -236,7 +248,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f28b2c9b7abb8dbf",
+  "active": "76fb1bd3d4dbc72f",
   "lastOpenFiles": [
     "blog/el-grit-cast-ep-52-victoria-nicole.html",
     "blog/posts/el-grit-cast-ep-53-whereisnoa.md",
